@@ -11,4 +11,4 @@ A lightweight, mobile-first website for reading Chinese web novels in English wh
 
 ## Adding New Chapters
 
-Add new chapter objects to `chapters` in `data/luo-jiu-zhen.js` and re-deploy the static folder to Netlify Drop, GitHub Pages, or Vercel.
+Add new chapter objects to `chapters` in `luo-jiu-zhen.js` and re-upload/push to GitHub Pages.

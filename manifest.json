@@ -8,7 +8,7 @@
   "theme_color": "#FAF6EE",
   "icons": [
     {
-      "src": "assets/luo-jiu-zhen-cover.jpg",
+      "src": "luo-jiu-zhen-cover.jpg",
       "sizes": "512x768",
       "type": "image/jpeg"
     }
