@@ -1,0 +1,16 @@
+{
+  "name": "goodbyechinese — Read Novels, Learn Chinese",
+  "short_name": "goodbyechinese",
+  "description": "Mobile-first Chinese web novel reader with progressive English-to-Chinese (Ruby Pinyin) immersion.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FAF6EE",
+  "theme_color": "#FAF6EE",
+  "icons": [
+    {
+      "src": "assets/luo-jiu-zhen-cover.jpg",
+      "sizes": "512x768",
+      "type": "image/jpeg"
+    }
+  ]
+}

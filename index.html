@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAF6EE" id="meta-theme-color" />
+  <meta name="description" content="goodbyechinese — Read Chinese web novels in English while learning Chinese Pinyin chapter by chapter. Featuring Luo Jiu Zhen (《洛九针》)." />
+  <title>goodbyechinese — Luo Jiu Zhen (《洛九针》)</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <!-- Top App Header -->
+    <header class="top-bar" id="top-bar">
+      <div class="top-bar-inner">
+        <button type="button" class="icon-btn" id="btn-back-library" aria-label="Home" title="Table of Contents">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+        </button>
+
+        <div class="top-bar-title" id="top-bar-title">
+          <span class="brand-name">goodbyechinese</span>
+          <span class="brand-sub" id="header-subtitle">Luo Jiu Zhen · 《洛九针》</span>
+        </div>
+
+        <div class="top-bar-actions">
+          <button type="button" class="icon-btn" id="btn-open-settings" aria-label="Reading Settings" title="Reading Settings">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="read-progress-track" id="read-progress-track">
+        <div class="read-progress-fill" id="read-progress-fill"></div>
+      </div>
+    </header>
+
+    <!-- Main View Container -->
+    <main class="main-content" id="main-content">
+      <!-- HOME / CHAPTERS VIEW -->
+      <section class="view view-library" id="view-library">
+        <div class="hero-card">
+          <div class="hero-cover-wrap">
+            <img src="assets/luo-jiu-zhen-cover.jpg" alt="Luo Jiu Zhen book cover illustration" class="hero-cover" />
+          </div>
+          <div class="hero-meta">
+            <div class="hero-kicker">Vol. 1: The Small City · 第1卷 小城</div>
+            <h1 class="hero-title">Luo Jiu Zhen <span class="zh-title">《洛九针》</span></h1>
+            <p class="hero-author">By <strong>Xi Xing (希行)</strong> · Chapters 1–4</p>
+            <p class="hero-desc">
+              Read in fluent English while Chinese words weave naturally inline.
+              Chapter 1 begins with just 3 everyday words in Pinyin—<strong>rén</strong>, <strong>shuǐ</strong>, and <strong>hǎo</strong>—and grows steadily chapter by chapter. Tap any word to see its character (<span class="zh-title">汉字</span>) and hear pronunciation.
+            </p>
+            <div class="hero-actions">
+              <button type="button" class="btn-primary" id="btn-start-reading">Start Reading Chapter 1</button>
+              <button type="button" class="btn-secondary" id="btn-view-vocab-home">Vocab Deck (<span id="home-mastered-count">0</span>)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- How Progressive Immersion Works Strip -->
+        <section class="immersion-ladder" aria-label="Progressive Immersion Method">
+          <div class="section-header">
+            <h2>Chinese Progress by Chapter</h2>
+            <span class="section-note" id="pace-summary-label">Standard Pace</span>
+          </div>
+          <div class="ladder-grid" id="ladder-preview"></div>
+        </section>
+
+        <!-- Chapter Directory -->
+        <section class="chapter-index-section" aria-label="Table of Contents">
+          <div class="section-header">
+            <h2 id="toc-novel-title">Chapters</h2>
+          </div>
+          <div class="chapter-grid" id="home-chapter-list"></div>
+        </section>
+      </section>
+
+      <!-- READER VIEW -->
+      <section class="view view-reader hidden" id="view-reader">
+        <article class="reader-article" id="reader-article">
+          <div class="chapter-header">
+            <div class="chapter-meta-row">
+              <span class="chapter-badge" id="reader-chapter-badge">Chapter 1</span>
+              <span class="immersion-badge" id="reader-immersion-badge">3 active words</span>
+              <button type="button" class="display-cycle-btn" id="btn-cycle-display" title="Switch Pinyin / Character style">
+                Style: Inline Pinyin ↻
+              </button>
+            </div>
+            <h1 class="chapter-title" id="reader-chapter-title">Chapter 1: Baiquan City</h1>
+            <p class="chapter-zh-title" id="reader-chapter-zh-title">第1章 百泉城</p>
+          </div>
+
+          <!-- New Words Unlocked in This Chapter -->
+          <div class="new-words-banner" id="new-words-banner">
+            <button type="button" class="new-words-toggle" id="btn-toggle-new-words" aria-expanded="true">
+              <span class="new-words-label">
+                <span class="seal-dot"></span>
+                <span id="new-words-summary">3 New Words Unlocked Here</span>
+              </span>
+              <span class="chevron" id="new-words-chevron">▾</span>
+            </button>
+            <div class="new-words-chips" id="new-words-chips"></div>
+          </div>
+
+          <!-- Prose Body -->
+          <div class="reader-prose" id="reader-prose"></div>
+
+          <!-- End of Chapter Card -->
+          <footer class="chapter-footer" id="chapter-footer">
+            <div class="chapter-recap-card">
+              <div class="recap-title">Chapter Complete</div>
+              <p class="recap-stats" id="recap-stats"></p>
+              <div class="recap-actions">
+                <button type="button" class="btn-secondary" id="btn-chapter-quiz">Quick Review</button>
+                <button type="button" class="btn-primary" id="btn-next-chapter-card">Next Chapter →</button>
+              </div>
+            </div>
+          </footer>
+        </article>
+      </section>
+    </main>
+
+    <!-- Mobile Sticky Bottom Reader Bar -->
+    <nav class="bottom-nav hidden" id="reader-bottom-nav" aria-label="Chapter Navigation">
+      <button type="button" class="nav-btn" id="btn-prev-chapter">
+        <span class="nav-icon">←</span>
+        <span class="nav-label">Prev</span>
+      </button>
+      <button type="button" class="nav-btn" id="btn-open-chapters">
+        <span class="nav-icon">☰</span>
+        <span class="nav-label">Chapters</span>
+      </button>
+      <button type="button" class="nav-btn" id="btn-open-vocab">
+        <span class="nav-icon">字</span>
+        <span class="nav-label">Vocab <em id="nav-vocab-count">0</em></span>
+      </button>
+      <button type="button" class="nav-btn nav-btn-primary" id="btn-next-chapter">
+        <span class="nav-icon">→</span>
+        <span class="nav-label">Next</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- MODAL BACKDROP -->
+  <div class="sheet-backdrop hidden" id="sheet-backdrop"></div>
+
+  <!-- WORD INSPECTOR BOTTOM SHEET -->
+  <aside class="bottom-sheet hidden" id="word-sheet" role="dialog" aria-modal="true" aria-labelledby="ws-hanzi">
+    <div class="sheet-handle"></div>
+    <div class="word-sheet-content">
+      <div class="ws-top">
+        <div class="ws-char-block">
+          <div class="ws-hanzi" id="ws-hanzi">人</div>
+          <div class="ws-pinyin-row">
+            <span class="ws-pinyin" id="ws-pinyin">rén</span>
+            <span class="ws-hsk-badge" id="ws-hsk">HSK 1</span>
+            <span class="ws-tier-badge" id="ws-tier">Tier 1</span>
+          </div>
+        </div>
+        <div class="ws-audio-group">
+          <button type="button" class="audio-btn" id="ws-speak-normal" title="Listen in Mandarin">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <span>Listen</span>
+          </button>
+          <button type="button" class="audio-btn-slow" id="ws-speak-slow" title="Slow pronunciation">0.6×</button>
+        </div>
+      </div>
+
+      <div class="ws-meaning-box">
+        <div class="ws-meaning" id="ws-meaning">person; people; human</div>
+        <div class="ws-matched-context" id="ws-context">In this sentence: "person"</div>
+      </div>
+
+      <p class="ws-note" id="ws-note"></p>
+
+      <div class="ws-example" id="ws-example"></div>
+
+      <div class="ws-actions">
+        <button type="button" class="btn-secondary" id="ws-close">Close</button>
+        <button type="button" class="btn-primary" id="ws-toggle-mastered">Mark as Mastered</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- READER SETTINGS SHEET -->
+  <aside class="bottom-sheet hidden" id="settings-sheet" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h2 id="settings-title">Reader & Learning Settings</h2>
+      <button type="button" class="icon-btn" id="btn-close-settings" aria-label="Close settings">✕</button>
+    </div>
+    <div class="settings-body">
+      <div class="setting-group">
+        <label class="setting-label">Paper Theme</label>
+        <div class="segmented-control" id="theme-selector">
+          <button type="button" data-theme-choice="paper" class="seg-btn active">Rice Paper</button>
+          <button type="button" data-theme-choice="sepia" class="seg-btn">Sepia</button>
+          <button type="button" data-theme-choice="ink" class="seg-btn">Night Ink</button>
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <label class="setting-label">Chinese Immersion Pace</label>
+        <div class="segmented-control" id="pace-selector">
+          <button type="button" data-pace="gentle" class="seg-btn">Gentle</button>
+          <button type="button" data-pace="standard" class="seg-btn active">Standard</button>
+          <button type="button" data-pace="immersive" class="seg-btn">Intensive</button>
+        </div>
+        <p class="setting-hint" id="pace-hint">Starts with 3 words in Ch. 1 (Ch. 2: 7, Ch. 3: 13) and expands every chapter.</p>
+      </div>
+
+      <div class="setting-group">
+        <label class="setting-label">Chinese Display Style</label>
+        <div class="segmented-control segmented-4" id="display-mode-selector">
+          <button type="button" data-display-mode="inline-pinyin" class="seg-btn active">Inline Pinyin</button>
+          <button type="button" data-display-mode="inline-both" class="seg-btn">Pinyin + 字</button>
+          <button type="button" data-display-mode="ruby" class="seg-btn">Ruby Above</button>
+          <button type="button" data-display-mode="hanzi" class="seg-btn">汉字 Only</button>
+        </div>
+        <p class="setting-hint" id="display-hint">Shows Pinyin cleanly inline (e.g. shuǐ). Tap any word to see its character & audio.</p>
+      </div>
+
+      <div class="setting-group setting-row">
+        <div>
+          <div class="setting-label">Highlight Newly Unlocked Words</div>
+          <div class="setting-hint">Warm underline on words appearing for the first time this chapter</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-highlight-new" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-group setting-row">
+        <div>
+          <div class="setting-label">Tone-Colored Pinyin</div>
+          <div class="setting-hint">Subtle color cues for 1st, 2nd, 3rd, and 4th tones</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-tone-colors" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-group">
+        <div class="setting-row-tight">
+          <label class="setting-label" for="range-font-size">Text Size</label>
+          <span class="font-size-readout" id="font-size-readout">18px</span>
+        </div>
+        <input type="range" id="range-font-size" min="15" max="24" step="1" value="18" class="range-input" />
+      </div>
+    </div>
+  </aside>
+
+  <!-- CHAPTERS DRAWER SHEET -->
+  <aside class="bottom-sheet hidden" id="chapters-sheet" role="dialog" aria-modal="true" aria-labelledby="chapters-sheet-title">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h2 id="chapters-sheet-title">Chapters</h2>
+      <button type="button" class="icon-btn" id="btn-close-chapters" aria-label="Close chapters">✕</button>
+    </div>
+    <div class="chapters-sheet-list" id="chapters-sheet-list"></div>
+  </aside>
+
+  <!-- VOCABULARY & FLASHCARD DRAWER -->
+  <aside class="bottom-sheet bottom-sheet-tall hidden" id="vocab-sheet" role="dialog" aria-modal="true" aria-labelledby="vocab-sheet-title">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h2 id="vocab-sheet-title">Vocabulary Notebook</h2>
+      <button type="button" class="icon-btn" id="btn-close-vocab" aria-label="Close vocabulary">✕</button>
+    </div>
+    <div class="vocab-tabs">
+      <button type="button" class="vocab-tab active" data-vtab="list">Encountered Words</button>
+      <button type="button" class="vocab-tab" data-vtab="flashcards">Flashcard Practice</button>
+    </div>
+    <div class="vocab-sheet-body" id="vocab-sheet-body"></div>
+  </aside>
+
+  <!-- Toast Notification -->
+  <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/vocab-bank.js"></script>
+  <script src="js/weaver.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="data/luo-jiu-zhen.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
