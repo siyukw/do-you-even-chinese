@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>PinyinRead — 洛九针 (Luò Jiǔzhēn) Celestial Edition</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter for UI, Lora/Newsreader for comfortable long-form mobile reading, Noto Serif SC for Hanzi -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Default: Warm Parchment (serene celestial xianxia parchment) */
+      --bg-primary: #f6f1e7;
+      --bg-secondary: #efe8d8;
+      --bg-card: #fbf8f1;
+      --bg-elevated: #ffffff;
+      --text-primary: #26221c;
+      --text-secondary: #5e5648;
+      --text-muted: #857b6b;
+      --accent-gold: #9a6b1f;
+      --accent-gold-soft: rgba(154, 107, 31, 0.11);
+      --accent-jade: #2b6b5c;
+      --accent-jade-soft: rgba(43, 107, 92, 0.10);
+      --border-subtle: rgba(78, 66, 46, 0.14);
+      --pinyin-text: #255c50;
+      --pinyin-underline: rgba(37, 92, 80, 0.45);
+      --pinyin-bg: rgba(43, 107, 92, 0.07);
+      --pinyin-bg-hover: rgba(43, 107, 92, 0.14);
+      --mastered-text: #8c621b;
+      --mastered-underline: rgba(140, 98, 27, 0.42);
+      --mastered-bg: rgba(154, 107, 31, 0.08);
+      --shadow-soft: 0 6px 20px -6px rgba(38, 34, 28, 0.08);
+    }
+
+    [data-theme="moon"] {
+      /* Soft Moon (calm light alabaster & slate) */
+      --bg-primary: #f2f4f7;
+      --bg-secondary: #e7ebf0;
+      --bg-card: #fafbfd;
+      --bg-elevated: #ffffff;
+      --text-primary: #1e242d;
+      --text-secondary: #4e5968;
+      --text-muted: #758294;
+      --accent-gold: #856124;
+      --accent-gold-soft: rgba(133, 97, 36, 0.10);
+      --accent-jade: #2c6278;
+      --accent-jade-soft: rgba(44, 98, 120, 0.10);
+      --border-subtle: rgba(30, 36, 45, 0.12);
+      --pinyin-text: #26596e;
+      --pinyin-underline: rgba(38, 89, 110, 0.45);
+      --pinyin-bg: rgba(44, 98, 120, 0.07);
+      --pinyin-bg-hover: rgba(44, 98, 120, 0.13);
+      --mastered-text: #7d5b20;
+      --mastered-underline: rgba(125, 91, 32, 0.42);
+      --mastered-bg: rgba(133, 97, 36, 0.08);
+      --shadow-soft: 0 6px 20px -6px rgba(30, 36, 45, 0.07);
+    }
+
+    [data-theme="night"] {
+      /* Deep Night (soft low-glare slate & indigo, no harsh neon) */
+      --bg-primary: #141820;
+      --bg-secondary: #1b202b;
+      --bg-card: #1d222e;
+      --bg-elevated: #242b3a;
+      --text-primary: #e2e6ee;
+      --text-secondary: #a6b0c2;
+      --text-muted: #768196;
+      --accent-gold: #cfa255;
+      --accent-gold-soft: rgba(207, 162, 85, 0.13);
+      --accent-jade: #63a898;
+      --accent-jade-soft: rgba(99, 168, 152, 0.12);
+      --border-subtle: rgba(226, 230, 238, 0.11);
+      --pinyin-text: #7cc0b0;
+      --pinyin-underline: rgba(124, 192, 176, 0.45);
+      --pinyin-bg: rgba(99, 168, 152, 0.09);
+      --pinyin-bg-hover: rgba(99, 168, 152, 0.16);
+      --mastered-text: #dcb266;
+      --mastered-underline: rgba(220, 178, 102, 0.45);
+      --mastered-bg: rgba(207, 162, 85, 0.10);
+      --shadow-soft: 0 8px 24px -8px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      background-image:
+        radial-gradient(ellipse 85% 45% at 50% 0%, var(--accent-gold-soft), transparent 70%),
+        radial-gradient(ellipse 75% 40% at 85% 18%, var(--accent-jade-soft), transparent 70%);
+      color: var(--text-primary);
+      transition: background-color 0.25s ease, color 0.25s ease;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .font-serif-novel {
+      font-family: 'Lora', Georgia, Cambria, serif;
+    }
+
+    .font-hanzi {
+      font-family: 'Noto Serif SC', serif;
+    }
+
+    /* Calm, understated Pinyin inline token styling */
+    .pinyin-token {
+      display: inline;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--pinyin-text);
+      background-color: var(--pinyin-bg);
+      border-bottom: 1.5px solid var(--pinyin-underline);
+      border-radius: 4px;
+      padding: 0.04em 0.26em 0.06em 0.26em;
+      margin: 0 0.04em;
+      cursor: pointer;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      text-decoration: none;
+    }
+
+    .pinyin-token:hover,
+    .pinyin-token:active {
+      background-color: var(--pinyin-bg-hover);
+    }
+
+    .pinyin-token.mastered {
+      color: var(--mastered-text);
+      background-color: var(--mastered-bg);
+      border-bottom: 1.5px dashed var(--mastered-underline);
+      font-style: normal;
+    }
+
+    .hanzi-inline {
+      font-family: 'Noto Serif SC', serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 0.88em;
+      color: var(--text-secondary);
+      margin-left: 0.18em;
+    }
+
+    /* Subtle slide transition for bottom sheet & modals without flashing */
+    @keyframes calmFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .calm-appear {
+      animation: calmFadeIn 0.2s ease-out forwards;
+    }
+
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-subtle);
+      border-radius: 9999px;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="min-h-screen flex flex-col"></div>
+
+  <script>
+    /**
+     * PinyinRead — Calm Celestial Web Novel Reader for 洛九针 (Luò Jiǔzhēn)
+     * 12 high-frequency Mandarin words woven progressively across Chapters 1–3,
+     * with distraction-free reading surfaces and clean mobile Chrome ergonomics.
+     */
+
+    // 1. 12 High-Frequency Mandarin Pinyin Words
+    const PINYIN_DICTIONARY = {
+      // Chapter 1 (4 words)
+      wo: {
+        id: 'wo',
+        pinyin: 'wǒ',
+        plain: 'wo',
+        hanzi: '我',
+        meaning: 'I / me',
+        toneInfo: '3rd tone (falling-rising, relaxed in casual speech)',
+        frequencyRank: '#1 most common word',
+        chapterIntroduced: 1,
+        exampleHanzi: '我是洛轻衣。',
+        examplePinyin: 'Wǒ shì Luò Qīngyī.',
+        exampleEnglish: 'I am Luo Qingyi.'
+      },
+      ni: {
+        id: 'ni',
+        pinyin: 'nǐ',
+        plain: 'ni',
+        hanzi: '你',
+        meaning: 'you',
+        toneInfo: '3rd tone (dipping voice)',
+        frequencyRank: '#2 most common word',
+        chapterIntroduced: 1,
+        exampleHanzi: '你好吗？',
+        examplePinyin: 'Nǐ hǎo ma?',
+        exampleEnglish: 'How are you?'
+      },
+      shi: {
+        id: 'shi',
+        pinyin: 'shì',
+        plain: 'shi',
+        hanzi: '是',
+        meaning: 'to be / am / is / are',
+        toneInfo: '4th tone (firm downward drop)',
+        frequencyRank: '#4 most common word',
+        chapterIntroduced: 1,
+        exampleHanzi: '这是清茶。',
+        examplePinyin: 'Zhè shì qīngchá.',
+        exampleEnglish: 'This is clear tea.'
+      },
+      cha: {
+        id: 'cha',
+        pinyin: 'chá',
+        plain: 'cha',
+        hanzi: '茶',
+        meaning: 'tea',
+        toneInfo: '2nd tone (rising pitch, like asking "huh?")',
+        frequencyRank: 'Core herbal & estate word',
+        chapterIntroduced: 1,
+        exampleHanzi: '喝杯热茶。',
+        examplePinyin: 'Hē bēi rè chá.',
+        exampleEnglish: 'Drink a cup of hot tea.'
+      },
+
+      // Chapter 2 (+4 words = 8 cumulative)
+      bu: {
+        id: 'bu',
+        pinyin: 'bù',
+        plain: 'bu',
+        hanzi: '不',
+        meaning: 'no / not',
+        toneInfo: '4th tone (shifts to 2nd tone before another 4th tone)',
+        frequencyRank: '#5 most common word',
+        chapterIntroduced: 2,
+        exampleHanzi: '我不在家。',
+        examplePinyin: 'Wǒ bù zài jiā.',
+        exampleEnglish: 'I am not at home.'
+      },
+      you: {
+        id: 'you',
+        pinyin: 'yǒu',
+        plain: 'you',
+        hanzi: '有',
+        meaning: 'to have / there is',
+        toneInfo: '3rd tone (low dipping tone)',
+        frequencyRank: '#6 most common word',
+        chapterIntroduced: 2,
+        exampleHanzi: '家里有茶。',
+        examplePinyin: 'Jiā lǐ yǒu chá.',
+        exampleEnglish: 'There is tea at home.'
+      },
+      ren: {
+        id: 'ren',
+        pinyin: 'rén',
+        plain: 'ren',
+        hanzi: '人',
+        meaning: 'person / people',
+        toneInfo: '2nd tone (smooth rising tone)',
+        frequencyRank: '#8 most common word',
+        chapterIntroduced: 2,
+        exampleHanzi: '那个人是谁？',
+        examplePinyin: 'Nàge rén shì shéi?',
+        exampleEnglish: 'Who is that person?'
+      },
+      jia: {
+        id: 'jia',
+        pinyin: 'jiā',
+        plain: 'jia',
+        hanzi: '家',
+        meaning: 'family / home',
+        toneInfo: '1st tone (high, steady, level pitch)',
+        frequencyRank: 'Top 30 everyday word',
+        chapterIntroduced: 2,
+        exampleHanzi: '欢迎回家。',
+        examplePinyin: 'Huānyíng huí jiā.',
+        exampleEnglish: 'Welcome home.'
+      },
+
+      // Chapter 3 (+4 words = 12 cumulative)
+      hao: {
+        id: 'hao',
+        pinyin: 'hǎo',
+        plain: 'hao',
+        hanzi: '好',
+        meaning: 'good / well / okay',
+        toneInfo: '3rd tone (low, gentle dip)',
+        frequencyRank: 'Top 20 everyday word',
+        chapterIntroduced: 3,
+        exampleHanzi: '茶很好。',
+        examplePinyin: 'Chá hěn hǎo.',
+        exampleEnglish: 'The tea is very good.'
+      },
+      lai: {
+        id: 'lai',
+        pinyin: 'lái',
+        plain: 'lai',
+        hanzi: '来',
+        meaning: 'to come',
+        toneInfo: '2nd tone (rising pitch)',
+        frequencyRank: 'Top 15 everyday word',
+        chapterIntroduced: 3,
+        exampleHanzi: '请过来。',
+        examplePinyin: 'Qǐng guòlái.',
+        exampleEnglish: 'Please come over.'
+      },
+      qu: {
+        id: 'qu',
+        pinyin: 'qù',
+        plain: 'qu',
+        hanzi: '去',
+        meaning: 'to go',
+        toneInfo: '4th tone (sharp falling tone)',
+        frequencyRank: 'Top 15 everyday word',
+        chapterIntroduced: 3,
+        exampleHanzi: '我们去药房。',
+        examplePinyin: 'Wǒmen qù yàofáng.',
+        exampleEnglish: 'Let us go to the apothecary.'
+      },
+      daifu: {
+        id: 'daifu',
+        pinyin: 'dàifu',
+        plain: 'daifu',
+        hanzi: '大夫',
+        meaning: 'doctor / physician',
+        toneInfo: '4th tone + neutral/light tone (dài-fu)',
+        frequencyRank: 'Key novel & healing word',
+        chapterIntroduced: 3,
+        exampleHanzi: '她是好大夫。',
+        examplePinyin: 'Tā shì hǎo dàifu.',
+        exampleEnglish: 'She is a good physician.'
+      }
+    };
+
+    const WORD_ORDER = ['wo', 'ni', 'shi', 'cha', 'bu', 'you', 'ren', 'jia', 'hao', 'lai', 'qu', 'daifu'];
+
+    // 2. Story Data: 洛九针 (Luò Jiǔzhēn)
+    const INITIAL_NOVEL = {
+      id: 'luo-jiuzhen',
+      title: 'Luò Jiǔzhēn',
+      hanziTitle: '洛九针',
+      englishSubtitle: 'The Nine Needles of Luo',
+      author: 'Xī Xíng (希行)',
+      genre: 'Celestial Xianxia · Healing & Mystery',
+      synopsis:
+        'Reborn with a quiet mastery of ancient silver needles and spirit-channeling medicine, Luo Qingyi steps back into a household woven with secrets, quiet loyalties, and hidden perils.',
+      chapters: [
+        {
+          id: 1,
+          title: 'Chapter 1: Mist Over the Quiet Courtyard',
+          hanziTitle: '第一章 静院晨雾',
+          readTime: '3 min read',
+          newWordIds: ['wo', 'ni', 'shi', 'cha'],
+          paragraphs: [
+            'Morning mist drifted softly across the stone courtyard before the household bells ever rang. Sitting beneath the eaves, Luo Qingyi let the cool breeze clear the lingering haze of a life lived twice.',
+            'A pot of pale mountain {cha} steamed gently on the low table, its quiet fragrance rising into the still air. In her previous life, she had carried too many burdens in silence; now, {wo} wanted only a clear mind and steady hands.',
+            'Footsteps approached along the pebble path, light yet measured. When the visitor paused beside the doorway, Qingyi looked up calmly. "{ni} {shi} awake early," she said softly, pouring a small cup of {cha} without haste.',
+            'Beneath the calm surface of the estate, old debts and unseen tides were already stirring—and {wo} knew that every cup poured in peace could steady the storm ahead.'
+          ]
+        },
+        {
+          id: 2,
+          title: 'Chapter 2: Beneath the Family Roof',
+          hanziTitle: '第二章 门楣深处',
+          readTime: '3 min read',
+          newWordIds: ['bu', 'you', 'ren', 'jia'],
+          paragraphs: [
+            'A grand {jia} rarely feels quiet for long once daylight reaches the inner halls. Servants crossed the courtyard carrying ledger scrolls and medicinal bundles, each {ren} moving with careful purpose.',
+            'Qingyi set down her porcelain cup and looked toward the main pavilion. A {jia} bound by blood and duty often hides more than affection; {you} warmth here, yet {you} sharp eyes watching every move.',
+            '"{wo} {bu} fear old shadows," she murmured to herself as she tucked a slender needle case inside her sleeve. Around her, {ren} spoke of fate and fortune, while {wo} saw the fragile pulse beneath their smiles.',
+            'Even if {ni} stand in a crowded hall, truth is {bu} always spoken aloud. For {wo}, surviving this {jia} meant knowing who could be trusted and who was merely waiting.'
+          ]
+        },
+        {
+          id: 3,
+          title: 'Chapter 3: The Physician’s Nine Needles',
+          hanziTitle: '第三章 九针问脉',
+          readTime: '4 min read',
+          newWordIds: ['hao', 'lai', 'qu', 'daifu'],
+          paragraphs: [
+            'By afternoon, word of a troubled pulse reached the quiet wing. A true {daifu} reads not only the wrist, but the stillness of the spirit behind the eyes.',
+            '"{wo} will {qu} see them," Qingyi said, gathering her instruments before stepping past the moon gate. A patient who has waited too long rarely has {hao} rest, and {ni} cannot mend a meridian in haste.',
+            'When she entered the dim chamber, a restless elder looked up with weary eyes. "Is there any {hao} news?" he asked faintly. "{wo} have come to {lai} steady your breath," Qingyi answered, her voice calm as spring water.',
+            'With nine fine needles poised in hand, the young {daifu} began her work. Wherever trouble chose to {lai}, {wo} would meet it calmly—and wherever the road might lead next, {wo} was ready to {qu}.'
+          ]
+        }
+      ]
+    };
+
+    // 3. Persistent State Management
+    const STORAGE_KEY = 'pinyinread_calm_state_v1';
+
+    const defaultState = {
+      view: 'reader', // 'reader' | 'vocab' | 'chapters'
+      activeChapterId: 1,
+      theme: 'parchment', // 'parchment' | 'moon' | 'night'
+      fontSize: 18, // px (15 - 24)
+      lineHeight: 1.85, // unitless
+      showHanzi: false,
+      showSettingsDrawer: false,
+      showAddChapterModal: false,
+      selectedWordId: null,
+      masteredWords: [],
+      customChapters: [],
+      toastMessage: null
+    };
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return { ...defaultState };
+        const parsed = JSON.parse(raw);
+        return {
+          ...defaultState,
+          ...parsed,
+          showSettingsDrawer: false,
+          showAddChapterModal: false,
+          selectedWordId: null,
+          toastMessage: null
+        };
+      } catch (err) {
+        console.warn('Could not load saved reading state:', err);
+        return { ...defaultState };
+      }
+    }
+
+    let state = loadState();
+
+    function saveState() {
+      try {
+        const toSave = {
+          view: state.view,
+          activeChapterId: state.activeChapterId,
+          theme: state.theme,
+          fontSize: state.fontSize,
+          lineHeight: state.lineHeight,
+          showHanzi: state.showHanzi,
+          masteredWords: state.masteredWords,
+          customChapters: state.customChapters
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+      } catch (err) {
+        console.warn('Could not persist reading state:', err);
+      }
+    }
+
+    function applyTheme() {
+      document.documentElement.setAttribute('data-theme', state.theme);
+    }
+
+    let toastTimer = null;
+    function showToast(msg) {
+      state.toastMessage = msg;
+      render();
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        state.toastMessage = null;
+        render();
+      }, 2400);
+    }
+
+    // 4. Chapter & Cumulative Pinyin Helpers
+    function getAllChapters() {
+      return [...INITIAL_NOVEL.chapters, ...state.customChapters];
+    }
+
+    function getActiveChapter() {
+      const chapters = getAllChapters();
+      return chapters.find((c) => c.id === state.activeChapterId) || chapters[0];
+    }
+
+    function getCumulativeWordIdsForChapter(chapterId) {
+      const chapters = getAllChapters();
+      const idx = chapters.findIndex((c) => c.id === chapterId);
+      if (idx === -1) return INITIAL_NOVEL.chapters[0].newWordIds;
+      const set = new Set();
+      for (let i = 0; i <= idx; i++) {
+        (chapters[i].newWordIds || []).forEach((id) => {
+          if (PINYIN_DICTIONARY[id]) set.add(id);
+        });
+      }
+      return Array.from(set);
+    }
+
+    // 5. Web Speech API Pronunciation (zh-CN) with Safe Fallback
+    function speakMandarin(text) {
+      try {
+        if (!('speechSynthesis' in window)) {
+          showToast('Voice playback is not supported on this browser.');
+          return;
+        }
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'zh-CN';
+        utterance.rate = 0.88;
+
+        const voices = window.speechSynthesis.getVoices();
+        const zhVoice =
+          voices.find((v) => v.lang && v.lang.toLowerCase().includes('zh-cn')) ||
+          voices.find((v) => v.lang && v.lang.toLowerCase().startsWith('zh'));
+        if (zhVoice) {
+          utterance.voice = zhVoice;
+        }
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {
+        console.warn('Speech synthesis error:', err);
+        showToast('Unable to play audio right now.');
+      }
+    }
+
+    // 6. Paragraph Rendering with Calm Pinyin Tokens
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function renderParagraphHtml(paragraphText, allowedWordIds) {
+      const allowedSet = new Set(allowedWordIds);
+      const parts = paragraphText.split(/(\{[a-z]+\})/g);
+
+      return parts
+        .map((part) => {
+          const match = part.match(/^\{([a-z]+)\}$/);
+          if (!match) {
+            return escapeHtml(part);
+          }
+          const wordId = match[1];
+          const entry = PINYIN_DICTIONARY[wordId];
+
+          if (!entry || !allowedSet.has(wordId)) {
+            return escapeHtml(entry ? entry.meaning.split('/')[0].trim() : wordId);
+          }
+
+          const isMastered = state.masteredWords.includes(wordId);
+          const hanziTag = state.showHanzi
+            ? `<span class="hanzi-inline">(${escapeHtml(entry.hanzi)})</span>`
+            : '';
+
+          return `<button type="button" class="pinyin-token ${isMastered ? 'mastered' : ''}" data-word-id="${escapeHtml(wordId)}" aria-label="${escapeHtml(entry.pinyin)}, ${escapeHtml(entry.hanzi)}, meaning ${escapeHtml(entry.meaning)}">${escapeHtml(entry.pinyin)}${hanziTag}</button>`;
+        })
+        .join('');
+    }
+
+    // 7. Auto-Weaver for New Chapters
+    function autoWeaveChapterText(rawText, cumulativeWordIds) {
+      let result = rawText.trim();
+      const sortedIds = [...cumulativeWordIds].sort((a, b) => {
+        const lenA = (PINYIN_DICTIONARY[a]?.meaning.split('/')[0].trim().length || 0);
+        const lenB = (PINYIN_DICTIONARY[b]?.meaning.split('/')[0].trim().length || 0);
+        return lenB - lenA;
+      });
+
+      const phraseMap = {
+        daifu: ['physician', 'doctor'],
+        jia: ['family', 'home'],
+        ren: ['person', 'people'],
+        wo: ['i', 'me'],
+        ni: ['you'],
+        shi: ['is', 'are', 'am'],
+        cha: ['tea'],
+        bu: ['not', 'no'],
+        you: ['have', 'has'],
+        hao: ['good', 'well'],
+        lai: ['come', 'came'],
+        qu: ['go', 'went']
+      };
+
+      const replacedCount = {};
+      sortedIds.forEach((id) => {
+        replacedCount[id] = 0;
+      });
+
+      for (const wordId of sortedIds) {
+        const candidates = phraseMap[wordId] || [];
+        for (const phrase of candidates) {
+          if (replacedCount[wordId] >= 2) break;
+          const regex = new RegExp(`(?<!\\{)\\b(${phrase})\\b(?![a-zA-Z0-9_]*\\})`, 'i');
+          if (regex.test(result)) {
+            result = result.replace(regex, (m) => {
+              replacedCount[wordId] += 1;
+              return `{${wordId}}`;
+            });
+          }
+        }
+      }
+
+      return result
+        .split(/\n\s*\n/)
+        .map((p) => p.trim())
+        .filter(Boolean);
+    }
+
+    // 8. Calm Celestial Cover Illustration (Static, Clean Linework, No Flashing/Spinning)
+    function renderCelestialCover() {
+      return `
+        <div class="relative overflow-hidden rounded-2xl border p-5 sm:p-6 mb-6" style="background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary)); border-color: var(--border-subtle); box-shadow: var(--shadow-soft);">
+          <div class="flex flex-col sm:flex-row items-center gap-5">
+            <!-- Static Celestial Astrolabe & Nine Needles SVG -->
+            <div class="w-40 h-52 sm:w-44 sm:h-56 shrink-0 rounded-xl overflow-hidden border flex items-center justify-center relative" style="background: linear-gradient(180deg, #1a2234 0%, #121722 100%); border-color: rgba(207, 162, 85, 0.28);">
+              <svg viewBox="0 0 180 220" class="w-full h-full" role="img" aria-label="洛九针 celestial moon, astrolabe linework, nine needles, clouds, and seal">
+                <defs>
+                  <linearGradient id="moonGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#f5e6c4" stop-opacity="0.95" />
+                    <stop offset="100%" stop-color="#cfa255" stop-opacity="0.72" />
+                  </linearGradient>
+                  <linearGradient id="needleGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#f7e7c1" />
+                    <stop offset="100%" stop-color="#b88836" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Subtle star dots -->
+                <circle cx="28" cy="30" r="1.1" fill="#f5e6c4" opacity="0.65" />
+                <circle cx="152" cy="42" r="1.2" fill="#f5e6c4" opacity="0.55" />
+                <circle cx="36" cy="96" r="1" fill="#8cc4b6" opacity="0.6" />
+                <circle cx="146" cy="112" r="1.1" fill="#f5e6c4" opacity="0.5" />
+
+                <!-- Celestial Moon & Quiet Astrolabe Rings -->
+                <circle cx="90" cy="76" r="34" fill="url(#moonGrad)" opacity="0.88" />
+                <circle cx="90" cy="76" r="46" fill="none" stroke="#cfa255" stroke-width="0.9" stroke-dasharray="3 3" opacity="0.6" />
+                <circle cx="90" cy="76" r="56" fill="none" stroke="#7cc0b0" stroke-width="0.7" opacity="0.45" />
+                <line x1="26" y1="76" x2="154" y2="76" stroke="#cfa255" stroke-width="0.6" opacity="0.35" />
+                <line x1="90" y1="16" x2="90" y2="136" stroke="#cfa255" stroke-width="0.6" opacity="0.35" />
+
+                <!-- Nine Delicate Silver/Gold Needles Fanning Gently -->
+                <g stroke="url(#needleGrad)" stroke-width="1.35" stroke-linecap="round">
+                  <line x1="90" y1="126" x2="48" y2="54" />
+                  <line x1="90" y1="126" x2="58" y2="46" />
+                  <line x1="90" y1="126" x2="68" y2="41" />
+                  <line x1="90" y1="126" x2="79" y2="38" />
+                  <line x1="90" y1="126" x2="90" y2="36" />
+                  <line x1="90" y1="126" x2="101" y2="38" />
+                  <line x1="90" y1="126" x2="112" y2="41" />
+                  <line x1="90" y1="126" x2="122" y2="46" />
+                  <line x1="90" y1="126" x2="132" y2="54" />
+                </g>
+
+                <!-- Soft Cloud Band -->
+                <path d="M12 162 Q34 148 56 160 Q78 146 102 159 Q126 146 150 158 Q162 153 170 160 L170 220 L12 220 Z" fill="#232d40" opacity="0.92" />
+                <path d="M18 174 Q45 162 72 173 Q102 160 132 172 Q152 166 166 174" fill="none" stroke="#7cc0b0" stroke-width="1" opacity="0.55" />
+
+                <!-- Title in Hanzi & Vermilion Seal -->
+                <text x="90" y="194" text-anchor="middle" fill="#f3ead8" font-family="'Noto Serif SC', serif" font-size="18" font-weight="700" letter-spacing="4">洛九针</text>
+                <rect x="136" y="178" width="24" height="24" rx="3" fill="#9e342b" opacity="0.92" />
+                <text x="148" y="194" text-anchor="middle" fill="#f8efe4" font-family="'Noto Serif SC', serif" font-size="11" font-weight="700">针</text>
+              </svg>
+            </div>
+
+            <!-- Book Metadata -->
+            <div class="flex-1 text-center sm:text-left min-w-0">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium mb-2" style="background: var(--accent-gold-soft); color: var(--accent-gold);">
+                <span>${escapeHtml(INITIAL_NOVEL.genre)}</span>
+              </div>
+              <h1 class="text-2xl sm:text-3xl font-bold tracking-tight" style="color: var(--text-primary);">
+                ${escapeHtml(INITIAL_NOVEL.title)}
+                <span class="font-hanzi text-xl sm:text-2xl font-semibold ml-1.5" style="color: var(--text-secondary);">(${escapeHtml(INITIAL_NOVEL.hanziTitle)})</span>
+              </h1>
+              <p class="text-sm font-medium mt-0.5" style="color: var(--accent-jade);">
+                ${escapeHtml(INITIAL_NOVEL.englishSubtitle)} · by ${escapeHtml(INITIAL_NOVEL.author)}
+              </p>
+              <p class="font-serif-novel text-sm sm:text-base mt-3 leading-relaxed" style="color: var(--text-secondary);">
+                ${escapeHtml(INITIAL_NOVEL.synopsis)}
+              </p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 9. Main UI Rendering
+    function render() {
+      applyTheme();
+      const chapters = getAllChapters();
+      const activeChapter = getActiveChapter();
+      const cumulativeWordIds = getCumulativeWordIdsForChapter(activeChapter.id);
+      const totalWords = WORD_ORDER.length;
+      const masteredCount = state.masteredWords.length;
+      const unlockedCount = cumulativeWordIds.length;
+
+      const appEl = document.getElementById('app');
+      appEl.innerHTML = `
+        <!-- Top Sticky Navigation Bar -->
+        <header class="sticky top-0 z-30 border-b backdrop-blur-md" style="background-color: color-mix(in srgb, var(--bg-primary) 90%, transparent); border-color: var(--border-subtle);">
+          <div class="max-w-3xl mx-auto px-3 sm:px-5 h-14 flex items-center justify-between gap-2">
+            <!-- Brand / Title -->
+            <button type="button" id="brandHomeBtn" class="flex items-center gap-2 text-left min-w-0 py-1.5">
+              <span class="font-hanzi text-lg font-bold px-2 py-0.5 rounded-lg border" style="color: var(--accent-gold); background: var(--accent-gold-soft); border-color: var(--border-subtle);">针</span>
+              <div class="truncate">
+                <span class="font-semibold text-sm sm:text-base tracking-tight" style="color: var(--text-primary);">PinyinRead</span>
+                <span class="hidden sm:inline text-xs ml-1.5" style="color: var(--text-muted);">· ${escapeHtml(INITIAL_NOVEL.hanziTitle)}</span>
+              </div>
+            </button>
+
+            <!-- Primary Navigation Tabs -->
+            <nav class="flex items-center gap-1 p-1 rounded-xl border" style="background: var(--bg-secondary); border-color: var(--border-subtle);" aria-label="Main sections">
+              <button type="button" data-nav="reader" class="px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors" style="${state.view === 'reader' ? 'background: var(--bg-elevated); color: var(--text-primary); box-shadow: var(--shadow-soft);' : 'color: var(--text-secondary);'}">
+                Read
+              </button>
+              <button type="button" data-nav="vocab" class="px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors" style="${state.view === 'vocab' ? 'background: var(--bg-elevated); color: var(--text-primary); box-shadow: var(--shadow-soft);' : 'color: var(--text-secondary);'}">
+                Words <span class="opacity-75">(${unlockedCount})</span>
+              </button>
+              <button type="button" data-nav="chapters" class="px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors" style="${state.view === 'chapters' ? 'background: var(--bg-elevated); color: var(--text-primary); box-shadow: var(--shadow-soft);' : 'color: var(--text-secondary);'}">
+                Chapters
+              </button>
+            </nav>
+
+            <!-- Calm Reading Controls ("Aa") -->
+            <button type="button" id="openSettingsBtn" class="px-3 py-1.5 rounded-xl border text-xs sm:text-sm font-semibold transition-colors" style="background: var(--bg-card); border-color: var(--border-subtle); color: var(--text-primary);" aria-label="Reading appearance settings">
+              Aa
+            </button>
+          </div>
+        </header>
+
+        <!-- Main Content Container -->
+        <main class="flex-1 w-full max-w-3xl mx-auto px-4 sm:px-6 pt-5 pb-24">
+          ${state.view === 'reader' ? renderReaderView(chapters, activeChapter, cumulativeWordIds) : ''}
+          ${state.view === 'vocab' ? renderVocabView(cumulativeWordIds, masteredCount, totalWords) : ''}
+          ${state.view === 'chapters' ? renderChaptersView(chapters) : ''}
+        </main>
+
+        <!-- Subtle Status Footer -->
+        <footer class="border-t py-4 px-4 text-center text-xs" style="border-color: var(--border-subtle); color: var(--text-muted);">
+          Tap any underlined Pinyin word to hear pronunciation &amp; see meaning · ${masteredCount}/${totalWords} words marked mastered
+        </footer>
+
+        ${state.showSettingsDrawer ? renderSettingsModal() : ''}
+        ${state.selectedWordId ? renderWordBottomSheet(state.selectedWordId) : ''}
+        ${state.showAddChapterModal ? renderAddChapterModal() : ''}
+
+        ${state.toastMessage ? `
+          <div class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-xl border text-xs sm:text-sm font-medium calm-appear" style="background: var(--bg-elevated); border-color: var(--border-subtle); color: var(--text-primary); box-shadow: var(--shadow-soft);">
+            ${escapeHtml(state.toastMessage)}
+          </div>
+        ` : ''}
+      `;
+
+      attachEventListeners();
+    }
+
+    function renderReaderView(chapters, activeChapter, cumulativeWordIds) {
+      const currentIndex = chapters.findIndex((c) => c.id === activeChapter.id);
+      const prevChapter = currentIndex > 0 ? chapters[currentIndex - 1] : null;
+      const nextChapter = currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
+      const newWords = (activeChapter.newWordIds || []).map((id) => PINYIN_DICTIONARY[id]).filter(Boolean);
+
+      return `
+        ${renderCelestialCover()}
+
+        <!-- Chapter Selector Pill Strip -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-4">
+          ${chapters.map((ch) => {
+            const isActive = ch.id === activeChapter.id;
+            return `
+              <button type="button" data-select-chapter="${ch.id}" class="shrink-0 px-3.5 py-2 rounded-xl border text-xs sm:text-sm font-medium transition-colors" style="${isActive ? 'background: var(--accent-jade); color: #ffffff; border-color: transparent;' : 'background: var(--bg-card); color: var(--text-secondary); border-color: var(--border-subtle);'}">
+                Ch. ${ch.id} · ${escapeHtml(ch.hanziTitle)}
+              </button>
+            `;
+          }).join('')}
+        </div>
+
+        <!-- Chapter Reading Card -->
+        <article class="rounded-2xl border p-5 sm:p-8" style="background: var(--bg-card); border-color: var(--border-subtle); box-shadow: var(--shadow-soft);">
+          <div class="border-b pb-4 mb-6" style="border-color: var(--border-subtle);">
+            <div class="flex flex-wrap items-center justify-between gap-2 text-xs font-medium mb-1.5" style="color: var(--text-muted);">
+              <span>${escapeHtml(chLabel(activeChapter))} · ${escapeHtml(activeChapter.readTime || '3 min read')}</span>
+              <span>${cumulativeWordIds.length} Pinyin words active</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold" style="color: var(--text-primary);">
+              ${escapeHtml(activeChapter.title)}
+            </h2>
+
+            ${newWords.length > 0 ? `
+              <div class="mt-3.5 flex flex-wrap items-center gap-1.5">
+                <span class="text-xs font-medium mr-1" style="color: var(--text-secondary);">New in this chapter:</span>
+                ${newWords.map((w) => `
+                  <button type="button" data-open-word="${escapeHtml(w.id)}" class="px-2.5 py-1 rounded-lg border text-xs font-medium transition-colors" style="background: var(--bg-secondary); border-color: var(--border-subtle); color: var(--pinyin-text);">
+                    ${escapeHtml(w.pinyin)} <span class="font-hanzi">${escapeHtml(w.hanzi)}</span> · ${escapeHtml(w.meaning.split('/')[0].trim())}
+                  </button>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+
+          <!-- Novel Body Paragraphs -->
+          <div class="font-serif-novel space-y-5" style="font-size: ${state.fontSize}px; line-height: ${state.lineHeight}; color: var(--text-primary);">
+            ${activeChapter.paragraphs.map((p) => `<p>${renderParagraphHtml(p, cumulativeWordIds)}</p>`).join('')}
+          </div>
+
+          <!-- Previous / Next Chapter Navigation -->
+          <div class="mt-9 pt-5 border-t flex items-center justify-between gap-3" style="border-color: var(--border-subtle);">
+            ${prevChapter ? `
+              <button type="button" data-select-chapter="${prevChapter.id}" class="px-4 py-2.5 rounded-xl border text-xs sm:text-sm font-medium transition-colors" style="background: var(--bg-secondary); border-color: var(--border-subtle); color: var(--text-primary);">
+                ← Chapter ${prevChapter.id}
+              </button>
+            ` : `<span></span>`}
+
+            ${nextChapter ? `
+              <button type="button" data-select-chapter="${nextChapter.id}" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors" style="background: var(--accent-jade); color: #ffffff;">
+                Chapter ${nextChapter.id} →
+              </button>
+            ` : `
+              <button type="button" data-nav="vocab" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors" style="background: var(--accent-gold); color: #ffffff;">
+                Review All 12 Words →
+              </button>
+            `}
+          </div>
+        </article>
+      `;
+    }
+
+    function chLabel(ch) {
+      return `${ch.hanziTitle || 'Chapter ' + ch.id}`;
+    }
+
+    function renderVocabView(cumulativeWordIds, masteredCount, totalWords) {
+      const unlockedSet = new Set(cumulativeWordIds);
+
+      return `
+        <div class="mb-6">
+          <h1 class="text-2xl font-bold" style="color: var(--text-primary);">High-Frequency Pinyin Words</h1>
+          <p class="text-sm mt-1" style="color: var(--text-secondary);">
+            12 core Mandarin words woven progressively across the novel. Tap any card to listen or mark as mastered.
+          </p>
+
+          <!-- Progress Summary Bar -->
+          <div class="mt-4 p-4 rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3" style="background: var(--bg-card); border-color: var(--border-subtle);">
+            <div>
+              <div class="text-xs font-medium uppercase tracking-wide" style="color: var(--text-muted);">Learning Progress</div>
+              <div class="text-lg font-bold mt-0.5" style="color: var(--text-primary);">
+                ${masteredCount} of ${totalWords} words mastered
+                <span class="text-xs font-normal ml-1.5" style="color: var(--text-secondary);">(${cumulativeWordIds.length} unlocked in current chapter)</span>
+              </div>
+            </div>
+            <div class="w-full sm:w-44 h-2.5 rounded-full overflow-hidden" style="background: var(--bg-secondary);">
+              <div class="h-full rounded-full transition-all duration-300" style="width: ${Math.round((masteredCount / totalWords) * 100)}%; background: var(--accent-jade);"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          ${WORD_ORDER.map((id) => {
+            const w = PINYIN_DICTIONARY[id];
+            const isUnlocked = unlockedSet.has(id);
+            const isMastered = state.masteredWords.includes(id);
+
+            return `
+              <div class="rounded-2xl border p-4 flex flex-col justify-between transition-colors" style="background: var(--bg-card); border-color: var(--border-subtle); opacity: ${isUnlocked ? '1' : '0.68'};">
+                <div>
+                  <div class="flex items-start justify-between gap-2">
+                    <div>
+                      <div class="flex items-baseline gap-2">
+                        <span class="text-xl font-bold italic" style="color: var(--pinyin-text);">${escapeHtml(w.pinyin)}</span>
+                        <span class="font-hanzi text-xl font-semibold" style="color: var(--text-primary);">${escapeHtml(w.hanzi)}</span>
+                      </div>
+                      <p class="text-sm font-medium mt-0.5" style="color: var(--text-primary);">${escapeHtml(w.meaning)}</p>
+                    </div>
+                    <span class="text-[11px] px-2 py-0.5 rounded-md border font-medium shrink-0" style="background: var(--bg-secondary); border-color: var(--border-subtle); color: var(--text-secondary);">
+                      Ch. ${w.chapterIntroduced}
+                    </span>
+                  </div>
+
+                  <p class="text-xs mt-2.5" style="color: var(--text-muted);">${escapeHtml(w.toneInfo)}</p>
+                </div>
+
+                <div class="mt-4 pt-3 border-t flex items-center justify-between gap-2" style="border-color: var(--border-subtle);">
+                  <button type="button" data-speak-word="${escapeHtml(w.hanzi)}" class="px-3 py-1.5 rounded-xl border text-xs font-medium" style="background: var(--bg-secondary); border-color: var(--border-subtle); color: var(--text-primary);">
+                    Listen
+                  </button>
+
+                  <div class="flex items-center gap-2">
+                    <button type="button" data-open-word="${escapeHtml(w.id)}" class="px-2.5 py-1.5 rounded-xl text-xs font-medium" style="color: var(--accent-jade);">
+                      Details
+                    </button>
+                    <button type="button" data-toggle-mastered="${escapeHtml(w.id)}" class="px-3 py-1.5 rounded-xl border text-xs font-medium" style="${isMastered ? 'background: var(--accent-gold-soft); border-color: var(--accent-gold); color: var(--accent-gold);' : 'background: transparent; border-color: var(--border-subtle); color: var(--text-secondary);'}">
+                      ${isMastered ? 'Mastered' : 'Mark Mastered'}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    function renderChaptersView(chapters) {
+      return `
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+          <div>
+            <h1 class="text-2xl font-bold" style="color: var(--text-primary);">Chapters</h1>
+            <p class="text-sm mt-1" style="color: var(--text-secondary);">
+              Each chapter keeps earlier Pinyin words and introduces new ones gently.
+            </p>
+          </div>
+          <button type="button" id="openAddChapterBtn" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold self-start sm:self-auto" style="background: var(--accent-jade); color: #ffffff;">
+            + Add Chapter
+          </button>
+        </div>
+
+        <div class="space-y-3">
+          ${chapters.map((ch) => {
+            const isCurrent = ch.id === state.activeChapterId;
+            const cumulative = getCumulativeWordIdsForChapter(ch.id);
+            const newWords = (ch.newWordIds || []).map((id) => PINYIN_DICTIONARY[id]?.pinyin).filter(Boolean);
+
+            return `
+              <div class="rounded-2xl border p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4" style="background: var(--bg-card); border-color: ${isCurrent ? 'var(--accent-jade)' : 'var(--border-subtle)'};">
+                <div class="min-w-0">
+                  <div class="flex items-center gap-2 text-xs font-medium" style="color: var(--text-muted);">
+                    <span>Chapter ${ch.id}</span>
+                    <span>·</span>
+                    <span class="font-hanzi">${escapeHtml(ch.hanziTitle || '')}</span>
+                    <span>·</span>
+                    <span>${cumulative.length} total Pinyin words</span>
+                  </div>
+                  <h2 class="text-base sm:text-lg font-bold mt-1" style="color: var(--text-primary);">${escapeHtml(ch.title)}</h2>
+                  <p class="text-xs mt-1.5" style="color: var(--text-secondary);">
+                    ${newWords.length > 0 ? `New Pinyin: <span class="font-semibold italic" style="color: var(--pinyin-text);">${escapeHtml(newWords.join(', '))}</span>` : 'Cumulative review chapter'}
+                  </p>
+                </div>
+
+                <button type="button" data-read-chapter="${ch.id}" class="px-4 py-2 rounded-xl border text-xs sm:text-sm font-semibold shrink-0" style="${isCurrent ? 'background: var(--accent-jade); color: #ffffff; border-color: transparent;' : 'background: var(--bg-secondary); color: var(--text-primary); border-color: var(--border-subtle);'}">
+                  ${isCurrent ? 'Reading Now' : 'Read Chapter'}
+                </button>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    function renderSettingsModal() {
+      const themes = [
+        { id: 'parchment', label: 'Warm Parchment', swatch: '#f6f1e7' },
+        { id: 'moon', label: 'Soft Moon', swatch: '#f2f4f7' },
+        { id: 'night', label: 'Deep Night', swatch: '#141820' }
+      ];
+
+      return `
+        <div id="settingsBackdrop" class="fixed inset-0 z-40 flex items-end sm:items-center justify-center p-0 sm:p-4" style="background: rgba(10, 12, 16, 0.45);">
+          <div class="w-full max-w-md rounded-t-3xl sm:rounded-2xl border p-5 sm:p-6 calm-appear" style="background: var(--bg-elevated); border-color: var(--border-subtle); box-shadow: var(--shadow-soft);">
+            <div class="flex items-center justify-between pb-3 border-b" style="border-color: var(--border-subtle);">
+              <h3 class="text-base font-bold" style="color: var(--text-primary);">Reading Comfort</h3>
+              <button type="button" id="closeSettingsBtn" class="px-2.5 py-1 rounded-lg text-xs font-medium" style="background: var(--bg-secondary); color: var(--text-secondary);">
+                Done
+              </button>
+            </div>
+
+            <!-- Theme Selector -->
+            <div class="mt-4">
+              <label class="block text-xs font-semibold uppercase tracking-wide mb-2" style="color: var(--text-muted);">Low-Glare Theme</label>
+              <div class="grid grid-cols-3 gap-2">
+                ${themes.map((t) => {
+                  const active = state.theme === t.id;
+                  return `
+                    <button type="button" data-set-theme="${t.id}" class="p-2.5 rounded-xl border text-left transition-colors" style="${active ? 'border-color: var(--accent-jade); background: var(--accent-jade-soft);' : 'border-color: var(--border-subtle); background: var(--bg-card);'}">
+                      <span class="inline-block w-4 h-4 rounded-full border align-middle mr-1.5" style="background: ${t.swatch}; border-color: var(--border-subtle);"></span>
+                      <span class="text-xs font-medium" style="color: var(--text-primary);">${escapeHtml(t.label)}</span>
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+
+            <!-- Font Size -->
+            <div class="mt-4">
+              <div class="flex items-center justify-between text-xs font-medium mb-1.5" style="color: var(--text-secondary);">
+                <span>Font Size</span>
+                <span>${state.fontSize}px</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button type="button" id="fontDecBtn" class="px-3.5 py-2 rounded-xl border text-sm font-semibold" style="background: var(--bg-secondary); border-color: var(--border-subtle); color: var(--text-primary);">A-</button>
+                <input type="range" id="fontSizeSlider" min="15" max="24" value="${state.fontSize}" class="flex-1" style="accent-color: var(--accent-jade);" />
+                <button type="button" id="fontIncBtn" class="px-3.5 py-2 rounded-xl border text-sm font-semibold" style="background: var(--bg-secondary); border-color: var(--border-subtle); color: var(--text-primary);">A+</button>
+              </div>
+            </div>
+
+            <!-- Line Spacing -->
+            <div class="mt-4">
+              <div class="flex items-center justify-between text-xs font-medium mb-1.5" style="color: var(--text-secondary);">
+                <span>Line Spacing</span>
+                <span>${state.lineHeight.toFixed(2)}</span>
+              </div>
+              <div class="grid grid-cols-3 gap-2">
+                ${[1.65, 1.85, 2.05].map((lh) => `
+                  <button type="button" data-set-lh="${lh}" class="py-2 rounded-xl border text-xs font-medium" style="${Math.abs(state.lineHeight - lh) < 0.02 ? 'background: var(--accent-jade); color: #ffffff; border-color: transparent;' : 'background: var(--bg-secondary); color: var(--text-primary); border-color: var(--border-subtle);'}">
+                    ${lh === 1.65 ? 'Compact' : lh === 1.85 ? 'Balanced' : 'Spacious'}
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- Inline Hanzi Toggle -->
+            <div class="mt-4 pt-3 border-t flex items-center justify-between" style="border-color: var(--border-subtle);">
+              <div>
+                <div class="text-sm font-medium" style="color: var(--text-primary);">Show Hanzi beside Pinyin</div>
+                <div class="text-xs" style="color: var(--text-muted);">Keep off for pure Pinyin practice</div>
+              </div>
+              <button type="button" id="toggleHanziBtn" class="px-3.5 py-1.5 rounded-xl border text-xs font-semibold" style="${state.showHanzi ? 'background: var(--accent-jade); color: #ffffff; border-color: transparent;' : 'background: var(--bg-secondary); color: var(--text-secondary); border-color: var(--border-subtle);'}">
+                ${state.showHanzi ? 'On' : 'Off'}
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderWordBottomSheet(wordId) {
+      const word = PINYIN_DICTIONARY[wordId];
+      if (!word) return '';
+      const isMastered = state.masteredWords.includes(wordId);
+
+      return `
+        <div id="wordSheetBackdrop" class="fixed inset-0 z-40 flex items-end sm:items-center justify-center p-0 sm:p-4" style="background: rgba(10, 12, 16, 0.45);">
+          <div class="w-full max-w-md rounded-t-3xl sm:rounded-2xl border p-5 sm:p-6 calm-appear" style="background: var(--bg-elevated); border-color: var(--border-subtle); box-shadow: var(--shadow-soft);">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="flex items-baseline gap-2.5">
+                  <span class="text-2xl font-bold italic" style="color: var(--pinyin-text);">${escapeHtml(word.pinyin)}</span>
+                  <span class="font-hanzi text-2xl font-bold" style="color: var(--text-primary);">${escapeHtml(word.hanzi)}</span>
+                </div>
+                <p class="text-base font-semibold mt-1" style="color: var(--text-primary);">${escapeHtml(word.meaning)}</p>
+              </div>
+              <button type="button" id="closeWordSheetBtn" class="px-2.5 py-1 rounded-lg text-xs font-medium" style="background: var(--bg-secondary); color: var(--text-secondary);">
+                Close
+              </button>
+            </div>
+
+            <div class="mt-3 space-y-1.5 text-xs" style="color: var(--text-secondary);">
+              <p><strong style="color: var(--text-primary);">Tone:</strong> ${escapeHtml(word.toneInfo)}</p>
+              <p><strong style="color: var(--text-primary);">Usage:</strong> ${escapeHtml(word.frequencyRank)} · Introduced in Ch. ${word.chapterIntroduced}</p>
+            </div>
+
+            <div class="mt-4 p-3.5 rounded-xl border" style="background: var(--bg-card); border-color: var(--border-subtle);">
+              <div class="text-xs font-medium mb-1" style="color: var(--text-muted);">Example</div>
+              <div class="text-sm font-semibold italic" style="color: var(--pinyin-text);">${escapeHtml(word.examplePinyin)}</div>
+              <div class="font-hanzi text-sm mt-0.5" style="color: var(--text-primary);">${escapeHtml(word.exampleHanzi)}</div>
+              <div class="text-xs mt-1" style="color: var(--text-secondary);">${escapeHtml(word.exampleEnglish)}</div>
+            </div>
+
+            <div class="mt-5 flex items-center gap-2.5">
+              <button type="button" id="sheetSpeakBtn" data-speak-word="${escapeHtml(word.hanzi)}" class="flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold" style="background: var(--accent-jade); color: #ffffff;">
+                Listen (zh-CN)
+              </button>
+              <button type="button" id="sheetMasterBtn" data-toggle-mastered="${escapeHtml(word.id)}" class="flex-1 py-2.5 px-4 rounded-xl border text-xs sm:text-sm font-semibold" style="${isMastered ? 'background: var(--accent-gold-soft); border-color: var(--accent-gold); color: var(--accent-gold);' : 'background: var(--bg-secondary); border-color: var(--border-subtle); color: var(--text-primary);'}">
+                ${isMastered ? 'Mastered ✓' : 'Mark Mastered'}
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAddChapterModal() {
+      return `
+        <div id="addChapterBackdrop" class="fixed inset-0 z-40 flex items-end sm:items-center justify-center p-0 sm:p-4" style="background: rgba(10, 12, 16, 0.45);">
+          <div class="w-full max-w-lg rounded-t-3xl sm:rounded-2xl border p-5 sm:p-6 calm-appear max-h-[90vh] overflow-y-auto" style="background: var(--bg-elevated); border-color: var(--border-subtle); box-shadow: var(--shadow-soft);">
+            <div class="flex items-center justify-between pb-3 border-b" style="border-color: var(--border-subtle);">
+              <h3 class="text-base font-bold" style="color: var(--text-primary);">Add Translated Chapter</h3>
+              <button type="button" id="closeAddChapterBtn" class="px-2.5 py-1 rounded-lg text-xs font-medium" style="background: var(--bg-secondary); color: var(--text-secondary);">
+                Cancel
+              </button>
+            </div>
+
+            <form id="addChapterForm" class="mt-4 space-y-3.5">
+              <div>
+                <label class="block text-xs font-semibold mb-1" style="color: var(--text-secondary);">Chapter Title</label>
+                <input type="text" id="newChapterTitle" required placeholder="e.g. Chapter 4: Lanterns by the River" class="w-full px-3 py-2 rounded-xl border text-sm" style="background: var(--bg-card); border-color: var(--border-subtle); color: var(--text-primary);" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold mb-1" style="color: var(--text-secondary);">Optional Hanzi Subtitle</label>
+                <input type="text" id="newChapterHanzi" placeholder="e.g. 第四章 江灯夜色" class="w-full px-3 py-2 rounded-xl border text-sm font-hanzi" style="background: var(--bg-card); border-color: var(--border-subtle); color: var(--text-primary);" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold mb-1" style="color: var(--text-secondary);">Optional New Pinyin Word to Introduce</label>
+                <select id="newChapterExtraWord" class="w-full px-3 py-2 rounded-xl border text-sm" style="background: var(--bg-card); border-color: var(--border-subtle); color: var(--text-primary);">
+                  <option value="">Keep existing cumulative words</option>
+                  ${WORD_ORDER.map((id) => {
+                    const w = PINYIN_DICTIONARY[id];
+                    return `<option value="${id}">${w.pinyin} (${w.hanzi}) — ${w.meaning}</option>`;
+                  }).join('')}
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold mb-1" style="color: var(--text-secondary);">English Translation Text</label>
+                <textarea id="newChapterBody" rows="6" required placeholder="Paste translated paragraphs here. Common words like tea, family, doctor, come, go, good, or person will be woven into Pinyin automatically." class="w-full px-3 py-2 rounded-xl border text-sm font-serif-novel" style="background: var(--bg-card); border-color: var(--border-subtle); color: var(--text-primary);"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-2.5 px-4 rounded-xl text-sm font-semibold" style="background: var(--accent-jade); color: #ffffff;">
+                Save &amp; Weave Pinyin
+              </button>
+            </form>
+          </div>
+        </div>
+      `;
+    }
+
+    // 10. Event Wiring
+    function attachEventListeners() {
+      document.getElementById('brandHomeBtn')?.addEventListener('click', () => {
+        state.view = 'reader';
+        saveState();
+        render();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      document.querySelectorAll('[data-nav]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.view = btn.getAttribute('data-nav');
+          saveState();
+          render();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+
+      document.querySelectorAll('[data-select-chapter], [data-read-chapter]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const chId = Number(btn.getAttribute('data-select-chapter') || btn.getAttribute('data-read-chapter'));
+          state.activeChapterId = chId;
+          state.view = 'reader';
+          saveState();
+          render();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+
+      document.querySelectorAll('.pinyin-token, [data-open-word]').forEach((el) => {
+        el.addEventListener('click', () => {
+          const wordId = el.getAttribute('data-word-id') || el.getAttribute('data-open-word');
+          if (wordId && PINYIN_DICTIONARY[wordId]) {
+            state.selectedWordId = wordId;
+            render();
+          }
+        });
+      });
+
+      document.querySelectorAll('[data-speak-word]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          speakMandarin(btn.getAttribute('data-speak-word'));
+        });
+      });
+
+      document.querySelectorAll('[data-toggle-mastered]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const wordId = btn.getAttribute('data-toggle-mastered');
+          if (!wordId) return;
+          if (state.masteredWords.includes(wordId)) {
+            state.masteredWords = state.masteredWords.filter((id) => id !== wordId);
+            showToast(`Unmarked ${PINYIN_DICTIONARY[wordId].pinyin}`);
+          } else {
+            state.masteredWords = [...state.masteredWords, wordId];
+            showToast(`Marked ${PINYIN_DICTIONARY[wordId].pinyin} as mastered`);
+          }
+          saveState();
+          render();
+        });
+      });
+
+      // Settings Drawer
+      document.getElementById('openSettingsBtn')?.addEventListener('click', () => {
+        state.showSettingsDrawer = true;
+        render();
+      });
+      document.getElementById('closeSettingsBtn')?.addEventListener('click', () => {
+        state.showSettingsDrawer = false;
+        render();
+      });
+      document.getElementById('settingsBackdrop')?.addEventListener('click', (e) => {
+        if (e.target.id === 'settingsBackdrop') {
+          state.showSettingsDrawer = false;
+          render();
+        }
+      });
+
+      document.querySelectorAll('[data-set-theme]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.theme = btn.getAttribute('data-set-theme');
+          saveState();
+          render();
+        });
+      });
+
+      document.getElementById('fontDecBtn')?.addEventListener('click', () => {
+        state.fontSize = Math.max(15, state.fontSize - 1);
+        saveState();
+        render();
+      });
+      document.getElementById('fontIncBtn')?.addEventListener('click', () => {
+        state.fontSize = Math.min(24, state.fontSize + 1);
+        saveState();
+        render();
+      });
+      document.getElementById('fontSizeSlider')?.addEventListener('input', (e) => {
+        state.fontSize = Number(e.target.value);
+        saveState();
+        render();
+      });
+
+      document.querySelectorAll('[data-set-lh]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.lineHeight = Number(btn.getAttribute('data-set-lh'));
+          saveState();
+          render();
+        });
+      });
+
+      document.getElementById('toggleHanziBtn')?.addEventListener('click', () => {
+        state.showHanzi = !state.showHanzi;
+        saveState();
+        render();
+      });
+
+      // Word Bottom Sheet
+      document.getElementById('closeWordSheetBtn')?.addEventListener('click', () => {
+        state.selectedWordId = null;
+        render();
+      });
+      document.getElementById('wordSheetBackdrop')?.addEventListener('click', (e) => {
+        if (e.target.id === 'wordSheetBackdrop') {
+          state.selectedWordId = null;
+          render();
+        }
+      });
+
+      // Add Chapter Modal
+      document.getElementById('openAddChapterBtn')?.addEventListener('click', () => {
+        state.showAddChapterModal = true;
+        render();
+      });
+      document.getElementById('closeAddChapterBtn')?.addEventListener('click', () => {
+        state.showAddChapterModal = false;
+        render();
+      });
+      document.getElementById('addChapterBackdrop')?.addEventListener('click', (e) => {
+        if (e.target.id === 'addChapterBackdrop') {
+          state.showAddChapterModal = false;
+          render();
+        }
+      });
+
+      document.getElementById('addChapterForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const title = document.getElementById('newChapterTitle').value.trim();
+        const hanziTitle = document.getElementById('newChapterHanzi').value.trim();
+        const extraWord = document.getElementById('newChapterExtraWord').value;
+        const body = document.getElementById('newChapterBody').value.trim();
+
+        if (!title || !body) return;
+
+        const allChapters = getAllChapters();
+        const nextId = Math.max(...allChapters.map((c) => c.id), 3) + 1;
+        const baseCumulative = getCumulativeWordIdsForChapter(allChapters[allChapters.length - 1].id);
+        const newWordIds = extraWord && !baseCumulative.includes(extraWord) ? [extraWord] : [];
+        const cumulativeForNew = Array.from(new Set([...baseCumulative, ...newWordIds]));
+        const paragraphs = autoWeaveChapterText(body, cumulativeForNew);
+        const wordCount = body.split(/\s+/).filter(Boolean).length;
+        const estMins = Math.max(2, Math.ceil(wordCount / 180));
+
+        const newChapter = {
+          id: nextId,
+          title,
+          hanziTitle: hanziTitle || `第${nextId}章`,
+          readTime: `${estMins} min read`,
+          newWordIds,
+          paragraphs
+        };
+
+        state.customChapters = [...state.customChapters, newChapter];
+        state.activeChapterId = nextId;
+        state.view = 'reader';
+        state.showAddChapterModal = false;
+        saveState();
+        render();
+        showToast(`Added ${title}`);
+      });
+    }
+
+    // Initial Render
+    render();
+  </script>
+</body>
+</html>
