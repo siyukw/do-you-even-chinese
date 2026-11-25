@@ -892,6 +892,18 @@ window.INKWEAVE_VOCAB = [
     example: { zh: '学艺', pinyin: 'xué yì', en: 'learn a craft' }
   },
   {
+    id: 'xing',
+    hanzi: '星',
+    pinyin: 'xīng',
+    tone: 1,
+    hsk: 2,
+    tier: 8,
+    meaning: 'star; stars',
+    triggers: ['star', 'stars'],
+    note: 'Part of 七星 (Qīxīng, Seven Stars)—the Big Dipper and the heroine’s true name!',
+    example: { zh: '七星', pinyin: 'qī xīng', en: 'Seven Stars / Big Dipper' }
+  },
+  {
     id: 'zuo',
     hanzi: '做',
     pinyin: 'zuò',

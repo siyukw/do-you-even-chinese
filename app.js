@@ -259,7 +259,11 @@
     els.bottomNav.classList.remove('hidden');
     els.headerSubtitle.textContent = `${NOVEL.title} · Ch. ${chapter.number}`;
 
-    const woven = InkWeaver.weaveChapter(chapter.text, chapter.number, {
+    const rawChapterText = Array.isArray(chapter.paragraphs)
+      ? chapter.paragraphs.join('\n\n')
+      : chapter.text;
+
+    const woven = InkWeaver.weaveChapter(rawChapterText, chapter.number, {
       pace: state.settings.pace,
       masteredSet: state.masteredSet,
       highlightNew: state.settings.highlightNew,

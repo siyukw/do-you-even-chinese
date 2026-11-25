@@ -7,13 +7,13 @@
 window.INKWEAVE_STARTER_NOVELS = [
   {
     id: 'luo-jiu-zhen',
-    starterVersion: 3,
+    starterVersion: 5,
     title: 'Luo Jiu Zhen',
     zhTitle: '《洛九针》',
     author: 'Xi Xing (希行)',
     cover: 'luo-jiu-zhen-cover.jpg',
     description:
-      'Volume 1: The Small City (第1卷 小城). Chapters 1–4 translated from the original Chinese—from Baiquan City’s celebrations and A-Qi’s expulsion to the rainy road toward Apricot Blossom Mountain.',
+      'Volume 1: The Small City (第1卷 小城). Chapters 1–8 translated from the original Chinese—from Baiquan City and the rainy journey to Commander Huo Lian of the Inspection Bureau and A-Qi reclaiming her true name, Qi Xing.',
     isStarter: true,
     chapters: [
       {
@@ -673,94 +673,733 @@ It was the dazzling glow of gold, silver, and jewels heaped inside the chests.
 "Who on earth could ever resist this?" Eldest Master Lu murmured, his eyes sinking deep into the gleam. "In that moment—forget a marriage contract, a man would have given up his own son's life!"`
       },
       {
-    number: 5,
-    title: "Shelter in a Ruined Temple",
-    zhTitle: "第5章 破庙过",
-    volume: 1,
-    paragraphs: [
-      "Thunder rolled across the sky, and rain poured down in sheets.",
-      "Going any farther was impossible. The road had turned to thick mud, and neither the donkey nor the cart could move forward. Fortunately, just before nightfall, they reached a ruined temple.",
-      "Though the temple had only a single hall, it was large enough for both the donkey and the cart to fit inside.",
-      "Qingzhi busied herself until she finally managed to light a small fire. She laid out fodder for the scrawny donkey, set an earthenware pot over the flames to boil, poured out a bowl of hot water, and walked carefully over to the cart.",
-      "\"Miss, drink some hot water,\" she called softly.",
-      "The girl in the cart did not move.",
-      "Qingzhi was used to this by now. Gently, she trickled the water into the corner of the girl's mouth. Seeing her swallow, Qingzhi let out a breath of relief—though only a small one.",
-      "Her Miss had been unconscious ever since that night.",
-      "Her Miss's health had always been fragile, and over the past two years she had stayed up late night after night doing needlework.",
-      "Qingzhi had tried to talk her out of it.",
-      "Her Miss wouldn't listen.",
-      "All her Miss wanted was to please the family.",
-      "All she wanted was to truly become part of the family.",
-      "In the end, she had ruined her health, and she still wasn't treated as family.",
-      "The day good news arrived about the Third Young Master, her Miss had been overjoyed, immediately thinking of what needlework she could make to send him. The Third Young Master had been away studying for four years, and every robe, shoe, and sock he wore had been sewn by her Miss's own hands.",
-      "Yet Madam Lu had stopped her, saying she would take her to meet the Old Madam so her place in the family could finally be made official.",
-      "When her Miss first entered the Lu household, outsiders were told only that she was an orphaned girl entrusted to them by relatives. Only a few elders in the family knew she was betrothed to the Third Young Master.",
-      "The eldest elder—Old Madam Lu—was not among them.",
-      "The excuse given was that the Old Madam had always wanted her grandson to marry a girl from her own maiden family, and would surely object if an outsider were brought up all at once. They needed to take things slowly—wait until the girl grew up inside the household and became an inseparable part of the family.",
-      "Yet the Old Madam lived out at the country estate year-round. In the five years her Miss had lived in the Lu house, she had seen the old woman no more than three or four times—and always trailing behind a crowd, dismissed for being noisy before she could even speak a single word.",
-      "Naturally, her Miss longed for the Old Madam's approval. She had waited for that day for years, and followed Madam Lu to the estate both nervous and overjoyed. Once there, they went inside for tea, and Madam Lu asked her to bring out the marriage contract. Of course—to prove her status, she needed the contract. Her Miss hurriedly handed it over, and Madam Lu tossed it straight into the incense burner.",
-      "Being his lawful wife is out of the question. With the Third Young Master's status today, you aren't worthy. Still, rest assured—our Lu family values loyalty and kindness. We won't throw you out to fend for yourself. You can stay on as a concubine.",
-      "Remembering that moment, tears spilled down Qingzhi's cheeks. She quickly wiped them away, dabbed the water from the corner of her Miss's lips, and felt her forehead.",
-      "Her forehead was ice-cold.",
-      "The very night Madam Lu burned the marriage contract and told her she would be a concubine, her Miss had collapsed unconscious, burning with fever.",
-      "Qingzhi had shouted for half the day before a servant woman finally came, only to be told there was no doctor in the village and it would have to wait until tomorrow.",
-      "When a doctor finally arrived the next day, he carelessly dismissed it as a simple chill and wrote a prescription. After a day of medicine, though her Miss was still burning hot, she forced herself up out of bed.",
-      "\"Qingzhi, this isn't right. It can't be like this. I have to ask Madam.\"",
-      "What use was asking? Even as a rough-work maid, Qingzhi could tell Madam Lu had looked down on her Miss from the very beginning. Still, it had to be asked—they couldn't just let it end like that. So when supply carts came from the main house to the estate, Qingzhi hid her Miss inside a cart and slipped back into the family residence.",
-      "What awaited them was only another humiliation, and another locked door. By then her Miss was burning so fiercely that holding her felt like holding a glowing coal.",
-      "Yet this time, her Miss did not pass out. Instead, she stopped Qingzhi from calling a doctor, asked for brush and paper, and drew a rough map for her.",
-      "Go home.",
-      "Qingzhi, take me home.",
-      "I want to go back to my grandfather and my mother.",
-      "Qingzhi gently stroked her Miss's pale cheek. Her Miss's grandfather and mother were both dead—did going back to them mean dying, too?",
-      "On the morning after they left the estate, the fever vanished. Qingzhi had been terrified at first, thinking the worst—until she saw her Miss was still breathing and could still swallow water, simply locked in a deep, unmoving sleep.",
-      "On the third day, afraid to wait any longer, Qingzhi sought out a traveling physician. Rather than telling her to prepare for a funeral, the doctor frowned, felt her pulse for a long while, and called it a sleeping illness.",
-      "Whatever kind of illness that was, it meant her Miss was still alive. Relieved yet anxious, Qingzhi hurried onward as fast as she could.",
-      "Perhaps once they reached home and her spirit settled, her Miss would wake up.",
-      "The earthenware pot over the campfire began to bubble. Snapping out of her thoughts, Qingzhi wiped away her tears and walked back with the bowl. Into the boiled water she added porridge and ginseng—along with the cart and donkey, she had taken dry rations and ginseng from the estate before leaving.",
-      "Everything the Old Madam used was top quality; Qingzhi only hoped it would sustain her Miss until they got home.",
-      "As she tended the fire and simmered the porridge, the rain outside showed no sign of letting up. It would likely pour all night. Lost in a daze, she suddenly heard a rhythmic thudding.",
-      "Was it thunder? Qingzhi started to look up, then realized the ground itself was vibrating. She lowered her eyes to the dirt floor.",
-      "Shouts rang out from beyond the doorway.",
-      "\"Shelter up ahead—\"",
-      "\"Check inside at once for strangers—\"",
-      "With the shouts came hoofbeats like rolling thunder. A flash of lightning split the sky, abruptly lighting up the entrance.",
-      "Qingzhi saw the figures appearing at the door.",
-      "Seven or eight men on horseback, wearing bamboo rain hats and black oilcloth cloaks, holding blazing torches.",
-      "In the flickering torchlight, dark sabers glinted beneath their black cloaks.",
-      "Qingzhi clutched the bowl tightly, frozen in place.",
-      "The men outside paused as well.",
-      "\"Someone's in here?\"",
-      "\"Who are they?\"",
-      "They murmured among themselves, their gazes sharp as lightning. Qingzhi felt their eyes sweep over her, then over to the cart, her Miss, and the donkey—",
-      "She wanted to stand and shield the cart, but her body was so stiff she couldn't move.",
-      "\"Go report to His Lordship.\"",
-      "At those words, one rider wheeled his horse around and galloped back, while the rest stood outside the entrance like a black wall, silent and motionless.",
-      "The torches crackled fiercely; the rain hissed down. Qingzhi felt as if her breathing had stopped altogether.",
-      "These travelers were looking for shelter, and there seemed to be quite a few of them. Surely she and her Miss—mere \"strangers\"—would be driven out into the storm?",
-      "Being driven out would actually be the best outcome.",
-      "Every single one of those men carried a blade.",
-      "Even Qingzhi, who had spent her life inside inner courtyards and never traveled far, knew how dangerous the open road was for lone women. All along the journey she had stayed on guard, claiming they were traveling to stay with relatives to ward off prying eyes.",
-      "Swords and sabers were far more terrifying than prying eyes.",
-      "After what felt like an eternity—or perhaps only the blink of an eye—a sharp whistle cut through the rain.",
-      "\"His Lordship orders us to press on.\"",
-      "The wall of men shifted, and the quiet patter of rain erupted into commotion.",
-      "\"We're leaving?\"",
-      "\"We've ridden a full day and night in heavy rain. Doubt we'll find another shelter ahead.\"",
-      "\"Save your breath. Don't delay His Lordship's journey.\"",
-      "Hooves thundered, the ground trembled, and the clamor faded away into the downpour.",
-      "Qingzhi remained crouched by the fire, gripping her bowl and staring at the doorway. Outside was pitch darkness and pouring rain, as if the whole encounter had been a dream.",
-      "Of course, it was no dream.",
-      "Only at daybreak, clutching a half-burned stick of firewood for courage, did Qingzhi dare step outside and look at the ground.",
-      "The rain had stopped, leaving the muddy earth churned with tangled hoofprints coming from the east and heading west.",
-      "Qingzhi let out a quiet breath.",
-      "Soldiers? Officials? Whoever they were, they looked formidable. Thank goodness they hadn't thrown their weight around—otherwise she and her Miss would have been the ones forced out into the night storm.",
-      "In her Miss's condition, she never could have survived that.",
-      "Suddenly, a cough sounded behind her.",
-      "Right—someone who caught a chill would cough. A sleeping illness kept you asleep; it didn't make you immune to sickness.",
-      "Qingzhi froze. The stick of firewood slipped from her fingers and clattered to the ground as she spun around to look inside.",
-      "A cough?",
-      "She coughed!"
+        number: 5,
+        title: 'Chapter 5: Shelter in a Ruined Temple',
+        zhTitle: '第5章 破庙过',
+        text: `Thunder rolled across the sky, and rain poured down in sheets.
+
+Going any farther was impossible. The road had turned to thick mud, and neither the donkey nor the cart could move forward. Fortunately, just before nightfall, they reached a ruined temple.
+
+Though the temple had only a single hall, it was large enough for both the donkey and the cart to fit inside.
+
+Qingzhi busied herself until she finally managed to light a small fire. She laid out fodder for the scrawny donkey, set an earthenware pot over the flames to boil, poured out a bowl of hot water, and walked carefully over to the cart.
+
+"Miss, drink some hot water," she called softly.
+
+The girl in the cart did not move.
+
+Qingzhi was used to this by now. Gently, she trickled the water into the corner of the girl's mouth. Seeing her swallow, Qingzhi let out a breath of relief—though only a small one.
+
+Her Miss had been unconscious ever since that night.
+
+Her Miss's health had always been fragile, and over the past two years she had stayed up late night after night doing needlework.
+
+Qingzhi had tried to talk her out of it.
+
+Her Miss wouldn't listen.
+
+All her Miss wanted was to please the family.
+
+All she wanted was to truly become part of the family.
+
+In the end, she had ruined her health, and she still wasn't treated as family.
+
+The day good news arrived about the Third Young Master, her Miss had been overjoyed, immediately thinking of what needlework she could make to send him. The Third Young Master had been away studying for four years, and every robe, shoe, and sock he wore had been sewn by her Miss's own hands.
+
+Yet Madam Lu had stopped her, saying she would take her to meet the Old Madam so her place in the family could finally be made official.
+
+When her Miss first entered the Lu household, outsiders were told only that she was an orphaned girl entrusted to them by relatives. Only a few elders in the family knew she was betrothed to the Third Young Master.
+
+The eldest elder—Old Madam Lu—was not among them.
+
+The excuse given was that the Old Madam had always wanted her grandson to marry a girl from her own maiden family, and would surely object if an outsider were brought up all at once. They needed to take things slowly—wait until the girl grew up inside the household and became an inseparable part of the family.
+
+Yet the Old Madam lived out at the country estate year-round. In the five years her Miss had lived in the Lu house, she had seen the old woman no more than three or four times—and always trailing behind a crowd, dismissed for being noisy before she could even speak a single word.
+
+Naturally, her Miss longed for the Old Madam's approval. She had waited for that day for years, and followed Madam Lu to the estate both nervous and overjoyed. Once there, they went inside for tea, and Madam Lu asked her to bring out the marriage contract. Of course—to prove her status, she needed the contract. Her Miss hurriedly handed it over, and Madam Lu tossed it straight into the incense burner.
+
+Being his lawful wife is out of the question. With the Third Young Master's status today, you aren't worthy. Still, rest assured—our Lu family values loyalty and kindness. We won't throw you out to fend for yourself. You can stay on as a concubine.
+
+Remembering that moment, tears spilled down Qingzhi's cheeks. She quickly wiped them away, dabbed the water from the corner of her Miss's lips, and felt her forehead.
+
+Her forehead was ice-cold.
+
+The very night Madam Lu burned the marriage contract and told her she would be a concubine, her Miss had collapsed unconscious, burning with fever.
+
+Qingzhi had shouted for half the day before a servant woman finally came, only to be told there was no doctor in the village and it would have to wait until tomorrow.
+
+When a doctor finally arrived the next day, he carelessly dismissed it as a simple chill and wrote a prescription. After a day of medicine, though her Miss was still burning hot, she forced herself up out of bed.
+
+"Qingzhi, this isn't right. It can't be like this. I have to ask Madam."
+
+What use was asking? Even as a rough-work maid, Qingzhi could tell Madam Lu had looked down on her Miss from the very beginning. Still, it had to be asked—they couldn't just let it end like that. So when supply carts came from the main house to the estate, Qingzhi hid her Miss inside a cart and slipped back into the family residence.
+
+What awaited them was only another humiliation, and another locked door. By then her Miss was burning so fiercely that holding her felt like holding a glowing coal.
+
+Yet this time, her Miss did not pass out. Instead, she stopped Qingzhi from calling a doctor, asked for brush and paper, and drew a rough map for her.
+
+Go home.
+
+Qingzhi, take me home.
+
+I want to go back to my grandfather and my mother.
+
+Qingzhi gently stroked her Miss's pale cheek. Her Miss's grandfather and mother were both dead—did going back to them mean dying, too?
+
+On the morning after they left the estate, the fever vanished. Qingzhi had been terrified at first, thinking the worst—until she saw her Miss was still breathing and could still swallow water, simply locked in a deep, unmoving sleep.
+
+On the third day, afraid to wait any longer, Qingzhi sought out a traveling physician. Rather than telling her to prepare for a funeral, the doctor frowned, felt her pulse for a long while, and called it a sleeping illness.
+
+Whatever kind of illness that was, it meant her Miss was still alive. Relieved yet anxious, Qingzhi hurried onward as fast as she could.
+
+Perhaps once they reached home and her spirit settled, her Miss would wake up.
+
+The earthenware pot over the campfire began to bubble. Snapping out of her thoughts, Qingzhi wiped away her tears and walked back with the bowl. Into the boiled water she added porridge and ginseng—along with the cart and donkey, she had taken dry rations and ginseng from the estate before leaving.
+
+Everything the Old Madam used was top quality; Qingzhi only hoped it would sustain her Miss until they got home.
+
+As she tended the fire and simmered the porridge, the rain outside showed no sign of letting up. It would likely pour all night. Lost in a daze, she suddenly heard a rhythmic thudding.
+
+Was it thunder? Qingzhi started to look up, then realized the ground itself was vibrating. She lowered her eyes to the dirt floor.
+
+Shouts rang out from beyond the doorway.
+
+"Shelter up ahead—"
+
+"Check inside at once for strangers—"
+
+With the shouts came hoofbeats like rolling thunder. A flash of lightning split the sky, abruptly lighting up the entrance.
+
+Qingzhi saw the figures appearing at the door.
+
+Seven or eight men on horseback, wearing bamboo rain hats and black oilcloth cloaks, holding blazing torches.
+
+In the flickering torchlight, dark sabers glinted beneath their black cloaks.
+
+Qingzhi clutched the bowl tightly, frozen in place.
+
+The men outside paused as well.
+
+"Someone's in here?"
+
+"Who are they?"
+
+They murmured among themselves, their gazes sharp as lightning. Qingzhi felt their eyes sweep over her, then over to the cart, her Miss, and the donkey—
+
+She wanted to stand and shield the cart, but her body was so stiff she couldn't move.
+
+"Go report to His Lordship."
+
+At those words, one rider wheeled his horse around and galloped back, while the rest stood outside the entrance like a black wall, silent and motionless.
+
+The torches crackled fiercely; the rain hissed down. Qingzhi felt as if her breathing had stopped altogether.
+
+These travelers were looking for shelter, and there seemed to be quite a few of them. Surely she and her Miss—mere "strangers"—would be driven out into the storm?
+
+Being driven out would actually be the best outcome.
+
+Every single one of those men carried a blade.
+
+Even Qingzhi, who had spent her life inside inner courtyards and never traveled far, knew how dangerous the open road was for lone women. All along the journey she had stayed on guard, claiming they were traveling to stay with relatives to ward off prying eyes.
+
+Swords and sabers were far more terrifying than prying eyes.
+
+After what felt like an eternity—or perhaps only the blink of an eye—a sharp whistle cut through the rain.
+
+"His Lordship orders us to press on."
+
+The wall of men shifted, and the quiet patter of rain erupted into commotion.
+
+"We're leaving?"
+
+"We've ridden a full day and night in heavy rain. Doubt we'll find another shelter ahead."
+
+"Save your breath. Don't delay His Lordship's journey."
+
+Hooves thundered, the ground trembled, and the clamor faded away into the downpour.
+
+Qingzhi remained crouched by the fire, gripping her bowl and staring at the doorway. Outside was pitch darkness and pouring rain, as if the whole encounter had been a dream.
+
+Of course, it was no dream.
+
+Only at daybreak, clutching a half-burned stick of firewood for courage, did Qingzhi dare step outside and look at the ground.
+
+The rain had stopped, leaving the muddy earth churned with tangled hoofprints coming from the east and heading west.
+
+Qingzhi let out a quiet breath.
+
+Soldiers? Officials? Whoever they were, they looked formidable. Thank goodness they hadn't thrown their weight around—otherwise she and her Miss would have been the ones forced out into the night storm.
+
+In her Miss's condition, she never could have survived that.
+
+Suddenly, a cough sounded behind her.
+
+Right—someone who caught a chill would cough. A sleeping illness kept you asleep; it didn't make you immune to sickness.
+
+Qingzhi froze. The stick of firewood slipped from her fingers and clattered to the ground as she spun around to look inside.
+
+A cough?
+
+She coughed!`
+      },
+      {
+        number: 6,
+        title: 'Chapter 6: Clear Skies',
+        zhTitle: '第6章 天晴空',
+        text: `After the rain came clear skies, an azure vault washed bright as jade.
+
+Traffic returned to the highway, though the road remained thick with mud and hard to walk. Worse still, reckless riders on fast horses galloped past without a care, spraying muddy water everywhere and drawing frequent curses.
+
+Hooves pounded *thud-thud*, making the very earth shake.
+
+"Again! Here they come again!" snapped a pedestrian freshly splattered head to toe in mud. "Why are there so many riders today?"
+
+Whom could he blame? Only himself for having neither carriage nor horse—serves him right.
+
+The pedestrian glared with bitter envy at a horse-drawn carriage rolling beside him.
+
+Inside, the passenger lifted the carriage curtain, glanced out at the pedestrian, and gave a smug smile. Mud might have splashed onto the carriage exterior, yet his own clothes stayed spotless. Nothing to be done about it—that was simply fate.
+
+"Make way!"
+
+Behind them came not only thunderous hoofbeats, but sharp shouts as well.
+
+Not only riding horses, but acting arrogant about it too? Pedestrians turned their heads to look—and instantly sucked in a cold breath. Down the road behind them surged what looked like rolling black storm clouds.
+
+Every rider in this company wore black—yet threads of gold glinted across the dark fabric from intricate gold-silk embroidery, while beneath the gold shimmered an eerie cold sheen from the waist sabers hanging at their hips.
+
+At the sight of this band, before anyone could shout "Make way!" a second time, the people along the road scattered like a disturbed hornet's nest.
+
+"The Inspection Bureau—" Low cries merged together and swelled into a roar.
+
+With the cries, travelers flung themselves to both sides of the road.
+
+Now those traveling on foot without horses or carriages had the easy part—two or three strides took them safely to the roadside. Carriages were in real trouble: drivers struggled to wheel around, the wagons were heavy and slow, and the draft horses—spooked by the crushing aura—panicked and refused the bit.
+
+In that brief delay, the riders arrived right before them. Nor did they waste time giving the carriages a hard way to pass: the four riders at the head reined in just enough to lift their horses' forelegs, drew their long spears in unison, and flicked their wrists.
+
+Amid horse screams and human shrieks, both carriage and horse were hoisted clean off the ground and tossed onto the roadside verge.
+
+The panicking horse snapped its harness and bolted; the carriage landed upside down with both wheels pointing skyward, flinging driver and passenger alike headfirst into a mud pit.
+
+"Help—save us!" cried the people in the mud.
+
+Hooves thundered straight past. Nobody came to take their lives, and nobody came to help either. Around them rang only chaotic shouting and whinnying horses—even a few gloating laughs from onlookers enjoying the carriage's sorry plight.
+
+"Quit lying there—get up already."
+
+"The Shadow Soldiers have passed—"
+
+Being able to call them "Shadow Soldiers" meant the troop had truly ridden past; otherwise, who would dare breathe that nickname aloud?
+
+The passenger who had tumbled from the carriage lifted his head out of the muddy puddle, helpless and fuming.
+
+"What rotten luck," he muttered. "Had I known I'd run into the Shadow Soldiers, I never would have taken a carriage."
+
+Back in the third year of Jianping, the reigning Emperor suddenly fell gravely ill. The Prince of Jin, holding a fief outside the capital, conspired with Senior General Liang Si of the Beihai Army: under the pretext of delivering a miracle prescription to the palace, they first lured and murdered the Crown Prince, intending next to march silently on the capital.
+
+Fortunately, someone inside the Beihai Army caught wind of the plot in time, beheaded General Liang Si with a single saber stroke, and led the Beihai Army to crush the Prince of Jin—saving Great Zhou from plunging into chaos.
+
+Yet the shock worsened the Emperor's illness. On his deathbed, he named the Crown Prince's full younger brother—the Sixth Prince—as his successor.
+
+Although every ringleader of the Prince of Jin's rebellion had his household confiscated and clan executed, losing both father and elder brother left a deep wound on the Sixth Prince. Convinced the court's oversight had been dangerously lax—allowing the Prince of Jin and Liang Si's conspiracy to go completely undetected—he split off a specialized bureau from the Censorate dedicated solely to surveillance and investigation, naming it the Inspection Bureau.
+
+Granted three thousand armed guards carrying the Emperor's personal warrant and exempt from oversight by the Three Judicial Offices, within four short years the Inspection Bureau swept across Great Xia. Whether ancient noble clans, high officials, or imperial princes and princesses, day or midnight—whenever their gates were knocked upon by these men, families were shattered and households wiped out.
+
+Because they were so merciless and fierce, people whispered of them in private as the "Netherworld Office," and called their men "Shadow Soldiers."
+
+Naturally, such names were only spoken behind closed doors.
+
+Once, in open court, the Vice Censor-in-Chief shouted out "Netherworld Office!" The Commander of the Inspection Bureau—who happened to be attending court that day, and by official rank was actually the Vice Censor's subordinate—said not a single word. He simply unbuckled his waist saber and slapped the flat of the blade *crack!* across the Vice Censor's face.
+
+A senior pillar of the late Emperor, past sixty years old, collapsed onto the floor with blood pouring down his face.
+
+The Inspection Bureau Commander merely bowed to say, *"We have startled Your Majesty; this subject begs leave to withdraw,"*—and dragged the Vice Censor right out of court by the collar.
+
+Sitting upon the Dragon Throne, the young Emperor said not a single word.
+
+Watching the long trail of the Vice Censor's blood smeared across the floor, then gazing at the retreating back of the Inspection Bureau Commander, the entire court fell dead silent.
+
+The Commander of the Inspection Bureau came from the Beihai Army.
+
+He was none other than the adopted son of that rebellious Senior General Liang Si.
+
+Having no sons of his own, Liang Si had adopted eight foster sons, all extraordinary warriors—and the eighth, most trusted and favored of all, was known as Liang Bazi.
+
+In the third year of Jianping, it was Liang Bazi who took off his adoptive father Liang Si's head with one clean stroke, quelling the treason of the Prince of Jin for the throne.
+
+After the new Emperor ascended, Liang Bazi was transferred from the Beihai Army to command the Inspection Bureau, and the Emperor personally bestowed upon him a new surname—**Huo**—and given name **Lian**.
+
+*Huo*, in hopes he would prove as fierce and victorious as the legendary Champion Marquis Huo.
+
+*Lian*—lotus—because Liang Si had supposedly plucked the abandoned infant from a river, drifting inside a cradle wrapped in a lotus leaf.
+
+If Liang Bazi could chop off the head of the adoptive father who raised and cherished him without blinking an eye, one dared not ask whether the heads of strangers to whom he owed nothing at all would receive an ounce of mercy.
+
+Apart from the Emperor, no one could rein him in.
+
+And for now, the Emperor clearly had no wish to rein him in.
+
+The Inspection Bureau guards swept away like rolling thunderclouds. Along the highway, people stared after their retreating backs with unconcealed terror in their eyes.
+
+"What are those Shadow Soldiers doing here in our Luo City?"
+
+"No telling whose unlucky turn it is around here."
+
+"Could it be the Prefect of Luo City?"
+
+...
+
+...
+
+Watching these men stride into his yamen, the Prefect of Luo City silently cursed his terrible luck while racking his brains over whether this year's gift to Commander Huo of the Inspection Bureau had been generous enough.
+
+"What brings Your Honors here?" he asked, plastering enthusiasm across his face. "How may I be of service?"
+
+A city prefect was a worthy scholar-official chosen by imperial examination; even inside the capital court, he could hold his spine straight when speaking. Yet today he found himself smiling anxiously and fawning before a handful of guards—truly humiliating.
+
+The lead guard spoke in a deep voice: "The Commander passed through here and lost something."
+
+The Prefect of Luo City jumped nearly out of his skin.
+
+*The Commander?* That calamity—no, *Huo Lian* himself had come in person?! Good heavens, was this a disaster big enough to purge a prince or high noble?!
+
+*Lost something?* How could anything belonging to Commander Huo possibly get lost? Was this a hint asking for silver?
+
+Pressing down his wildly hammering heart, the Prefect asked carefully, "May I ask what item it is? And roughly how much it is worth?"
+
+The guard shook open a painted scroll. "Worth nothing special—just a weapon. However—" He fixed his eyes on the Prefect. "If we don't find it, the Commander isn't leaving."
+
+Good heavens—the Prefect could barely focus on what was drawn on the scroll.
+
+He understood the meaning instantly: its value was an entire city!
+
+Every official and noble clan in Luo City, from top to bottom, was doomed!
+
+...
+
+...
+
+While one squad of guards entered the prefectural yamen, far more guards fanned out in every direction—into market towns, into villages—searching inch by inch.
+
+Towns and villages alike trembled in panic; nobody knew whose home was about to be raided, and it looked as though every single household was next.
+
+Thankfully, before they actually began kicking down gates and doors, along a narrow woodland path, several boots trampled down a patch of tall grass and uncovered a dark iron object.
+
+"Found it!" they shouted in surprise and relief.
+
+One of them stooped to pick up the mud-stained iron piece from the weeds.
+
+In the sunlight, faint patterns etched across the metal gleamed softly.
+
+Gripping one end, the guard gave a firm tug—and a sword slid free before their eyes.
+
+It was a six-foot sword, plain and ancient in style, engraved with two characters: **Nine Needles**.
+
+"No mistake," the guard said, letting out a breath as he read the inscription. "This is the sword."
+
+He slid the blade back into its scabbard and glanced around.
+
+"How did it drop way out here? What place is this?"
+
+Another guard was surveying their surroundings as well. "Oh—I remember now. The Commander paused right around here last night."
+
+*Paused here?* The first guard blinked—then spotted the eaves of a ruined temple looming faintly at the edge of the woods ahead, and sudden understanding dawned on his face.
+
+*Ah. Here.*`
+      },
+      {
+        number: 7,
+        title: 'Chapter 7: Sitting at the Tea Stall',
+        zhTitle: '第7章 茶棚坐',
+        text: `Hooves rolled like thunder as the black-clad riders arrived before the ruined temple. Unlike last night's rainy pause, this time the guards stepped inside.
+
+No one remained in the ruined temple now—only an extinguished campfire covered over with dirt, alongside tracks left by people, a handcart, and a donkey.
+
+The guards fanned out to inspect the hall, then gathered back together moments later.
+
+"Nothing unusual," they reported.
+
+What could possibly be unusual? thought the lead guard. Just a drafty, crumbling temple where two women and a skinny donkey had taken shelter—and one of the women was half-dead anyway. They had seen that much with a single glance from the doorway last night.
+
+They had been the advance scouts searching for a dry place for the Commander to rest.
+
+Behind them, the Commander had already halted to wait for word.
+
+Finding people inside hadn't really mattered—they could simply have been chased out.
+
+No matter who was inside—even if a cracked Buddha statue had come alive—if the Commander wanted to stay, the Buddha himself would have to step aside.
+
+Yet after they reported back, the Commander had muttered that it was too much trouble and ordered them to press on.
+
+*Trouble?* What trouble could there possibly be?
+
+Even as heavy rain drummed down over heads and shoulders and filled heaven and earth with noise, the Commander's voice had carried crystal clear:
+
+"Women—crying, fussing, annoying," he had said. "Don't want to listen to it."
+
+What was so annoying about women crying and fussing? They saw plenty of that during household raids—if they bothered you, one swing of a saber made everything dead quiet. The guards hadn't understood, yet the Commander had already spurred his horse forward.
+
+The Commander's mood had always been impossible to guess; everyone was used to it by now, so they simply circled past the ruined temple and rode hard through the night.
+
+That brief halt followed by spurring his horse forward was probably how the sword slipped loose.
+
+Casting one last look at the ruined temple, the guards wheeled their horses around and galloped away.
+
+As word spread, black-clad guards converged from all directions toward Luo City, making the sentries on the city gate watch with pounding hearts.
+
+*Here they come—they're really here!*
+
+Inside the city, officials and gentry clans were beside themselves with terror—some were even pondering at home how to die quickly, knowing that falling into the Inspection Bureau's hands meant a fate worse than death.
+
+Yet these black-clad guards did not enter the city. Instead, they halted at a humble roadside tea stall outside the gates.
+
+Every city had tea stalls like this along its main approach—simple wooden posts holding up a thatched awning, rough benches and tables, two big iron pots perpetually boiling water, and coarse broken tea leaves tossed by the handful straight into the kettle.
+
+It wasn't far from the city wall; a few more steps would take a traveler inside to clean, proper teahouses. Still, the road was grueling and entering the gate meant lining up for inspection, so dust-covered, parched travelers gazing at the walls right ahead usually preferred to sit down first for a cup of tea to catch their breath.
+
+Thus the tea stall was always bustling with guests, lively and loud.
+
+Today, however, despite the crowd, there was no clamor—in fact, it was quiet enough to hear water bubbling *glug-glug* inside the boiling pots.
+
+The old tea vendor crouched beside his stove, staring at the rolling water and unsure whether to steep the crushed tea leaves on the counter, until an impatient call rang out:
+
+"Is the tea ready? Why so slow?"
+
+The old tea vendor gave a shiver, pinched a handful of broken tea leaves into the pot with trembling hands, and shuffled around holding the kettle: "R-ready..."
+
+The entire tea stall had been sealed off so tightly not even a fly could slip inside, yet beneath the thatched awning sat only one solitary figure.
+
+Not daring to raise his head, the old tea vendor edged step by step to the table, catching sight only of gold-silk patterns coiled along the hem of the man's robe by his boots.
+
+"Y-Your... Honor, pl-please..." Quaking, he set the teapot down.
+
+A hand reached out and took hold of the teapot.
+
+It was a long, broad hand—with a jagged, menacing scar slashing across the back.
+
+More terrified than ever, the old tea vendor bowed his head lower and backed away to his stove, listening to the sound of tea being poured.
+
+*He's actually drinking my crude stall tea...*
+
+Unable to resist, the old man stole a cautious upward glance—just in time to see that hand lifting a teacup to the man's lips.
+
+And then a pair of dark, deep eyes met the old man's gaze.
+
+The very instant he looked up, those dark eyes turned straight toward him, piercing like a sharp sword.
+
+Startled wide awake, the old vendor ducked his head back down and shrank beside the stove.
+
+Sitting here at the crossroads, he met travelers from every corner and heard news from everywhere—of course the old tea vendor knew the dread name of Commander Huo Lian of the Inspection Bureau.
+
+Yet setting aside his terrifying aura today, another thought lingered absurdly in the old man's mind: *this Commander Huo certainly has striking eyes...*
+
+Hurried footsteps approached, accompanied by a voice: "My Lord, we found it."
+
+The teacup clicked softly back onto the table.
+
+"Good," Commander Huo's voice replied. "I only wanted the item—not any people."
+
+Having caught bits and pieces of the chatter, the old tea vendor knew Huo Lian had stopped to hunt for something lost.
+
+*Now that it's found, is he going to execute whoever stole it on the spot?*
+
+The old tea vendor dropped his head lower still, any thought of Commander Huo's handsome eyes vanishing instantly.
+
+"My Lord, it wasn't stolen—it fell off," the guard explained.
+
+Out of the corner of his eye, the old vendor saw a guard raising a sword high in both hands to present it.
+
+"Right near that ruined temple where Your Lordship paused without stopping last night."
+
+Huo Lian let out a quiet *"Oh,"* as though trying to recall where that ruined temple was.
+
+Curious himself, the old tea vendor listened as the guard added:
+
+"Two women were resting inside that ruined temple last night, and Your Lordship rode past."
+
+"We inspected it already—nothing out of the ordinary. Their cart was traveling in the opposite direction from where the sword dropped."
+
+Meaning neither of those two had stolen it; those two women hadn't even noticed a dropped sword nearby.
+
+"The sword hook snapped off," Commander Huo's voice remarked suddenly.
+
+*So that's all it was,* the old tea vendor murmured a silent prayer of relief. *Nothing to do with anyone else at all.*
+
+A moment later came a faint metallic sound, as if Commander Huo had tossed the sword lightly in his hand, followed by a low, questioning *"Hm?"*
+
+*What now?*
+
+*Surely he isn't going to blame someone else because a sword hook broke?* The old tea vendor's heart leaped back into his throat.
+
+"My Lord, is something wrong?" a guard asked.
+
+Huo Lian's voice replied, "It seems a bit lighter."
+
+*Lighter?* The old tea vendor blinked in confusion—then heard a sharp clatter as Commander Huo tossed the sword aside and a guard caught it.
+
+"Such shoddy workmanship—and they call that a master smith?" Huo Lian's tone carried a touch of cold mockery. "Cost us travel time for nothing. Toss it onto the baggage cart."
+
+With that, he rose and strode heavily outward.
+
+The guards inside the tea stall followed with a rustle of boots.
+
+The old tea vendor raised his head cautiously and saw a tall figure surrounded by black-clad guards. Suddenly the tall figure paused, revealing a strikingly handsome profile to the old man.
+
+"Zhu Chuan, don't forget to pay for the tea."
+
+With that, he stepped out.
+
+A dark-skinned black-clad guard in his early twenties turned back, blocking the old vendor's view—evidently Zhu Chuan—and asked how much.
+
+The old tea vendor trembled from head to foot.
+
+"Don't say it's free, as if our Lord bullies poor folk," Zhu Chuan said, then added: "And don't think about overcharging either—our Lord's money doesn't blow in on the wind."
+
+The old tea vendor could only stammer out a tiny sum.
+
+And this Zhu Chuan actually began to haggle: "Your tea isn't even that good..."
+
+The old tea vendor nearly burst into tears—that was exactly why he had wanted to refuse payment!
+
+"Zhu Chuan, quit scaring the old fellow," someone called loudly as he stepped beneath the awning.
+
+Zhu Chuan chuckled, dropped a few coins onto the table, and turned toward the newcomer.
+
+The newcomer was a full-bearded officer in his thirties with a booming voice: "Found it? Which sword was it—one bestowed by His Majesty?"
+
+"Just one grabbed at random from the armory before setting out," Zhu Chuan answered.
+
+He paused a moment, thinking back.
+
+"Actually, I recognize that sword—it was seized years ago during the Prince of Jin's rebellion."
+
+*Seized during the Prince of Jin's rebellion!* That had been a monumental affair, yet because it involved imperial princes, ordinary people dared not gossip about it freely. Huo Lian had handled that case personally—and made his name on it—knowing far more than folk rumors ever told. The old tea vendor couldn't help pricking up his ears.
+
+Zhu Chuan went on: "Grabbed it at random just for show—our Lord doesn't even use a sword. Who knew the hook had worn out from sitting around so long?"
+
+The bearded officer let out an *"Oh."* "Looking at how the Lord acted like he'd turn Luo City upside down, I figured it must be something priceless."
+
+When the Inspection Bureau raided estates, they confiscated mountains of goods; though loot had to be turned over to the treasury, someone of the Commander's rank kept whatever caught his eye. Even kept treasures had tiers—anything stored in the regular armory was hardly rare, or else it would have gone into the Treasury of Rare Treasures.
+
+"Even confiscated loot was won through our Lord's planning—of course it's precious," Zhu Chuan said. "He can throw it away if he likes, but nobody gets to steal it from him."
+
+"You've always got an answer for everything," the bearded officer laughed, turning outward and raising his voice to shout: "Mount up! Move out!"
+
+At his command, the black-clad guards gathered outside swung onto their saddles, formed ranks, and galloped away in a thunderous cloud around Commander Huo.
+
+Only once the hoofbeats faded completely did the old tea vendor dare poke his head out to look.
+
+Up on the city gate, the sentries let out a long sigh of relief and rushed to send word inward.
+
+"They really left?" The Prefect of Luo City could hardly believe his ears. "Just like that?"
+
+No raids, no executions, not even extortion of property.
+
+All the lavish gifts he had prepared were still stacked inside his storehouse!
+
+Remembering them, the Prefect hastily urged his subordinates: "Quick—chase after them and deliver the gifts!"
+
+His underlings hurried off pushing carts and returned half a day later to report that Commander Huo had accepted everything.
+
+The Prefect of Luo City and the waiting gentry clans all exhaled in deep relief.
+
+As long as he accepted the gifts, all was well.
+
+Standing straight-backed once more with serene eyes, the Prefect smiled at the assembled gentry: "I assured Commander Huo that our Luo City officials are upright and our gentry clans benevolent—and Commander Huo wholeheartedly agreed."
+
+The gentry clans showered the Prefect with grateful praise: "You worked hard, Your Honor!"
+
+"Many thanks for speaking kindly on our behalf!"
+
+"Only with Your Honor here can we all rest easy." Meanwhile, the gifts prepared by each household were carried inside, and the Prefect accepted them all with a warm smile.
+
+Both officials and citizens of Luo City set their racing hearts at ease.
+
+...
+
+Gazing at the boundary stone ahead, Qingzhi felt her own anxious heart settle slightly as well.
+
+"Miss," she said, loosening the donkey's reins and stepping beside the cart, "we've reached Xu City."
+
+As she spoke, she gently lifted one corner of the awning draped over the cart and peered inside.
+
+Inside, her Miss still lay motionless—yet at the sound of her voice, those closed eyes opened.
+
+Jet-black eyes, deep and bright.
+
+"Good," she said.`
+      },
+      {
+        number: 8,
+        title: 'Chapter 8: Named Qi Xing',
+        zhTitle: '第8章 名七星',
+        text: `Good—Qingzhi thought things were turning out unexpectedly good.
+
+Ever since waking up that morning, her Miss had not run another fever, coughed blood, or fallen back into that heavy sleep.
+
+Yesterday she had even stepped down from the cart to walk a few paces—though still frail, she quickly returned to lie down inside.
+
+Still the same scrawny donkey pulling the slow cart over bumpy roads, alternating between scorching heat and sudden rain—yet every time Qingzhi looked back to speak, someone answered her. All the hardship, bitterness, and gnawing fear melted away at once.
+
+Before she knew it, they truly had crossed into the Xu City border.
+
+They really were nearly at her Miss's home.
+
+She had actually brought her Miss home safely.
+
+"Miss," Qingzhi asked, unable to hide her excitement, "are these roads familiar to you?"
+
+Lying inside the cart, her Miss shook her head. "Not familiar."
+
+True enough—crossing into the Xu City border didn't mean they had arrived at her house yet. Xu City was vast; how could her Miss know every stretch of it? Besides, coming home like this wasn't exactly a joyful occasion...
+
+Qingzhi pulled out the map her Miss had drawn and studied it carefully. Even though she had memorized every line by heart, she still took it out to look each time, as if only checking it again could keep them on course.
+
+That night, forcing her weak body upright, her Miss had traced dots and lines to mark the route—simple yet thorough, down to the names of every village and market town.
+
+Now they had passed every single one of those towns and villages. Only two dots remained on the map: one labeled *Apricot Blossom Academy*, and the other labeled *Graveyard*.
+
+Qingzhi's gaze lingered on that final dot, a dull ache pressing against her heart.
+
+"Miss, are you hungry?" she asked softly.
+
+Her Miss shook her head again. "Not hungry."
+
+"Then let's keep pushing on," Qingzhi said brightly, "so we can spend tonight at home!"
+
+Her Miss agreed with a quiet *"Good,"* yet did not close her eyes to rest. Instead, her gaze rested on the map in Qingzhi's hand as she reached out: "Let me look at it."
+
+The route map? Qingzhi hastily handed it over. Her Miss took the paper in both hands, spread it open before her eyes, and studied it closely.
+
+The donkey cart swayed and creaked onward.
+
+Glancing back from time to time, Qingzhi saw how intently her Miss was reading, her fingertips tracing gently over the written characters.
+
+"Miss writes such beautiful characters," Qingzhi said warmly. "Everyone in the family said so—even the Third Young Master said—"
+
+Before the sentence finished, Qingzhi raised her hand and slapped her own mouth. *What "family"? What "Third Young Master"?* From now on they were bitter enemies—how could she bring them up in front of her Miss?
+
+Her Miss seemed not to have heard the last half of the sentence. Tracing her fingertips lightly across the drawing, she nodded. "Yes, it is good."
+
+Relieved, Qingzhi said no more, gripping the donkey's lead and quickening her pace.
+
+By dusk, a thatched cottage finally came into view—right beside the main road, overlooking a clear lake, bathed in a coat of gold by the setting sun.
+
+Yet as they drew close and the golden light faded, only sheer dilapidation met the eye.
+
+Three rooms stood side by side. Traces of fence posts lingered outside, though the fence itself was long gone.
+
+Doors and windows were worn and rotting, wild weeds choking the yard.
+
+It looked even more rundown than the ruined temples they had passed along the road.
+
+Her Miss's home really... didn't look like a home at all. Standing before the thatched cottage, Qingzhi didn't know what to say, a heavy sorrow swelling in her chest. Her Miss truly had no home left in this world.
+
+"Not bad," a voice spoke from behind her.
+
+Qingzhi spun around in surprise to see her Miss had already climbed down from the cart, and hurried to steady her.
+
+Resting one hand lightly on Qingzhi's arm, her Miss looked through the windows across all three rooms from left to right: one seemed to be living quarters, one the room where her grandfather used to teach, and the third a kitchen with the earthen stove still intact.
+
+"This house was built remarkably well and sturdy," her Miss said, tapping the door frame lightly with her hand. "It only looks worn on the outside—neither wind nor rain ever breached the inside."
+
+She sniffed the air gently.
+
+"Medicinal woods and herbs were worked into the timber too—no snakes or insects will come inside."
+
+*Really?* Qingzhi poked her head inward to look. Sure enough, the roof tiles and beams were completely sound, with not a trace of rainwater leaking onto the floor. She couldn't tell about snakes or insects without stepping inside, yet when she sniffed hard herself, there truly wasn't any of that musty rot of an abandoned house.
+
+"Of course—Miss knows her own home best!" she said happily.
+
+Gazing at the thatched cottage, her Miss replied, "I'm not familiar with it either."
+
+That didn't surprise Qingzhi much. During all her years in the Lu household, her Miss rarely spoke of herself—mentioning only once that she had come to stay with her grandfather after her mother fell gravely ill and passed away.
+
+And not long after arriving here, Eldest Master Lu had brought her away—so naturally she wouldn't know the place well.
+
+Asking nothing further, Qingzhi looked at the lock on the door. "Miss, do you have the key?"
+
+Her Miss gave a soft *"Mm,"* yet didn't take it out. Instead, she lifted her eyes toward the small mountain rising beside them.
+
+"Let's visit the graveyard first," she said.
+
+Of course—after everything that had happened, even though her loved ones were gone, standing before their graves was where the heart could finally rest. Qingzhi agreed at once, not bothering to ask if her Miss was strong enough to climb; if she couldn't walk, Qingzhi would simply carry her up on her back.
+
+Her Miss didn't need to be carried. Frail as she looked, leaning one hand on Qingzhi and steadying herself with a bamboo staff in the other, she climbed slowly halfway up the slope.
+
+Turning along a clearly manicured footpath through a grove of green bamboo, they came upon two small stone grave markers.
+
+Qingzhi carefully helped her Miss sit down before the graves. Not knowing how to comfort her, she lowered her head and began clearing away dead twigs and fallen leaves. Out of the corner of her eye, she saw her Miss was not crying—only gazing quietly at the headstones.
+
+"Old Man Yue," her Miss read aloud softly from the first stone.
+
+Clearly not a real name. Qingzhi looked at the gravestone too: no life history, no origin—nothing but three simple characters.
+
+"Daughter Yue," her Miss read from the second marker beside it.
+
+Was this her Miss's mother? Qingzhi looked at that stone as well—just as bare and plain. A whole human life leaving behind nothing but two words, and nothing else at all.
+
+"Then in the future, what will they carve for me..." her voice murmured softly, "Yue, Little Daughter?"
+
+Qingzhi felt an odd urge to laugh, though nothing about this was funny in the least.
+
+Had Old Master Yue only had one daughter? Had Mother Yue only had this one girl? What about her Miss's father...?
+
+Inside the Lu household, her Miss had only a childhood pet name, and no surname.
+
+Having no surname meant having no family, no clan, no kin in the world.
+
+Living a whole life without a name or a home, ending as a lone grave on a hillside—it was too heartbreaking.
+
+"Miss," Qingzhi said gently, "you're called A-Qi. That *is* a name."
+
+Even a pet name given by a mother was still a real name.
+
+Her Miss turned her head toward her and shook it lightly. "No."
+
+*No?* Qingzhi blinked in surprise.
+
+"It's Qi Xing," her Miss said, lifting her hand to brush her cheek. "My name is Qi Xing."
+
+*Qi Xing?* Her Miss's true name was **Qi Xing**! Qingzhi was stunned—and then overjoyed.
+
+"What a lovely name!" she beamed, then asked curiously, "Does it mean the Seven Stars of the Big Dipper—stars up in the sky?"
+
+Qingzhi tilted her head up toward the sky. Dusk was deepening, though the full blanket of stars had not yet emerged. Looking back at her Miss seated before the graves in the fading light—raven hair draping her shoulders, brows curved like distant mountains, eyes black as polished lacquer—she couldn't help adding:
+
+"It means Miss is just as lovely as the stars."
+
+Her Miss gave a soft smile.
+
+"Qingzhi," she said, "go gather some firewood so we can build a fire."
+
+Oh, right—they needed to cook and boil water, and there wouldn't be any firewood inside an empty house. Qingzhi nodded "Yes!"—yet paused as she started to walk away.
+
+Her Miss seemed *too* calm.
+
+Coming home at last, seeing her grandfather's and mother's graves, she hadn't cried, hadn't wept, hadn't shed a single tear.
+
+Could her Miss be thinking of ending her life?
+
+"Miss," Qingzhi said anxiously, "don't take things too hard! No matter what, as long as you're alive—"
+
+For a moment she didn't even know how to comfort her. Betrayed so shamelessly by the Lu family, left an orphan all alone in the world—how was she supposed to go on living?
+
+Tears slipped down Qingzhi's cheeks.
+
+"Miss, if you stay alive, at least you can still sweep your grandfather's and your mother's graves."
+
+Was that really a reason to live?
+
+Her Miss glanced at the headstones—people who didn't even leave their real names behind probably didn't care whether anyone swept their graves.
+
+Looking into her maid's tear-filled eyes, she nodded gently and said, "Good."
+
+"I won't seek death," she said. "I will live."
+
+Turning back toward the gravestone, her eyes rested on the two characters *Daughter Yue*, and she reached out to stroke the stone softly.`
+      }
     ]
   }
 ];
